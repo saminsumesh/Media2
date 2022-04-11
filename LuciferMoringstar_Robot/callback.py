@@ -221,7 +221,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                         file_id=file_id,
                         caption=caption
                         )
-                    await query.answer('🤖 Check PM, I have Sent Files In Pm 🤖',show_alert = True)
+                    await query.answer('🤖 I have Sent Files In Pm 🤖',show_alert = True)
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
@@ -242,17 +242,12 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                 size=get_size(files.file_size)
                 
                 caption=CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, title=title, size=size, caption=files.caption)
-
-                buttons = [[
-                  InlineKeyboardButton('🧑‍💻 How To Own 🧑‍💻', url='https://t.me/Mo_Tech_Group')
-                  ]]                 
-                
+              
                 await query.answer()
                 await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
-                    caption=caption,
-                    reply_markup=InlineKeyboardMarkup(buttons)
+                    caption=caption
                     )
 
 
@@ -293,7 +288,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             buttons = [[
              InlineKeyboardButton("Source", url="https://t.me/ippotharam34"),
              InlineKeyboardButton("Movies", url="https://t.me/AugustCinemaReq"),
-             InlineKeyboardButton("Back", callback_data="help")
+             InlineKeyboardButton("Back", callback_data="start")
              ]]               
             await query.message.edit(text=LuciferMoringstar.ABOUT_MSG.format(mention=query.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME, dev_name=DEV_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
