@@ -22,11 +22,11 @@ async def group_filters(client, message):
                 file_name = file.file_name
                 file_size = get_size(file.file_size)
                 btn.append(
-                    [InlineKeyboardButton(text=f'🔮 {search}', url=f'{search})
+                    [InlineKeyboardButton(text=f'🔮 {search}', url=f'{search})]
                 )
                 btn.append([
-                            InlineKeyboardButton(text=f'🍭 {file_name}', url=f''),
-                            InlineKeyboardButton(text=f'🍬 {file_size}', url=f'')])
+                            InlineKeyboardButton(text=f'🍭 {file_name}', url=f'samin#{file_id}'),
+                            InlineKeyboardButton(text=f'🍬 {file_size}', url=f'samin#{file_id}')])
         else:
             if SPELL_MODE:
                 reply = search.replace(" ", '+')  
