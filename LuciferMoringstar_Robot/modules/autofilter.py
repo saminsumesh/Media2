@@ -12,7 +12,7 @@ async def group_filters(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
     if 2 < len(message.text) < 50:    
-        btn = list(split_list(btn, 10)) 
+        btn = []
         search = message.text
         files = await get_filter_results(query=search)
         if files:
@@ -23,7 +23,8 @@ async def group_filters(client, message):
                 btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
                 )
                 btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', callback_data=f"lucifermoringstar_robot#{file_id}"),
-                            InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"lucifermoringstar_robot#{file_id}")])
+                            InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"lucifermoringstar_robot#{file_id}")]
+                )
         else:
             if SPELL_MODE:
                 reply = search.replace(" ", '+')  
@@ -115,7 +116,7 @@ async def pm_autofilter(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
     if 2 < len(message.text) < 50:    
-        btn = [1]
+        btn = []
         search = message.text
         files = await get_filter_results(query=search)
         if files:
