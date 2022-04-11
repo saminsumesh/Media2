@@ -120,12 +120,12 @@ async def pm_autofilter(client, message):
         search = message.text
         files = await get_filter_results(query=search)
         if files:
+            btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
+            )
             for file in files:
                 file_id = file.file_id
                 file_name = file.file_name
                 file_size = get_size(file.file_size)
-                btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
-                )
                 btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', callback_data=f"pmfile#{file_id}"),
                             InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"pmfile#{file_id}")]
                 )
