@@ -26,10 +26,12 @@ async def group_filters(client, message):
                             InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"lucifermoringstar_robot#{file_id}")]
                 )
         else:
-            if SPELL_MODE:
-                reply = search.replace(" ", '+')  
+            if SPELL_MODE:  
                 reply_markup = InlineKeyboardMarkup([[
-                 InlineKeyboardButton("🔮IMDB🔮", url=f"https://www.imdb.com/find?q={reply}")
+                 InlineKeyboardButton("🔮IMDB🔮", callback_data="imdb")
+                 ],[
+                 InlineKeyboardButton("🍭Reason", callback_data="reason"),
+                 InlineKeyboardButton("🍬Retry", callback_data="Retry").
                  ]]  
                 )    
                 imdb=await get_poster(search)
