@@ -26,10 +26,7 @@ async def start_message(bot, message):
              ],[
              InlineKeyboardButton("ℹ️ Help", callback_data="bot_owner"),
              InlineKeyboardButton("😎 About", callback_data="about") 
-             ],[
-             InlineKeyboardButton("🗳 Deploy", url="https://youtu.be/OTqZmADyOjU"),
-             InlineKeyboardButton("🤖 Support", url="https://t.me/Mo_Tech_Group")
-             ]]    
+             ]]
         await message.reply_photo(photo = choice(BOT_PICS), caption=START_MSG.format(mention = message.from_user.mention, bot_name = bot_info.BOT_NAME, bot_username = bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
@@ -40,7 +37,7 @@ async def start_message(bot, message):
          ]]
         reply_markup = InlineKeyboardMarkup(button)
         await message.reply_photo(
-            photo=choice(FORCES),
+            photo=choice(BOT_PICS),
             caption=f"""<i><b>Hello {message.from_user.mention}. \nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> To <a href="{invite_link.invite_link}">My Update Channel</a>.So you do not get the Files on Inline Mode, Bot Pm and Group</i></b>""",
             reply_markup=reply_markup
         )
@@ -49,8 +46,8 @@ async def start_message(bot, message):
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["help"]))
 async def help(bot, message):
     button = [[
-     InlineKeyboardButton("🏠 Home", callback_data="start"),
-     InlineKeyboardButton("About 😎", callback_data="about")
+     InlineKeyboardButton("Home", callback_data="start"),
+     InlineKeyboardButton("About", callback_data="about")
      ]]
     await message.reply_photo(
         photo = choice(BOT_PICS),
@@ -60,8 +57,8 @@ async def help(bot, message):
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["about"]))
 async def about(bot, message):
     button = [[
-     InlineKeyboardButton("🏠 Home", callback_data="start"),
-     InlineKeyboardButton("Close 🗑️", callback_data="close")
+     InlineKeyboardButton("Home", callback_data="start"),
+     InlineKeyboardButton("Close", callback_data="close")
      ]]  
     await message.reply_photo(
         photo = choice(BOT_PICS),
