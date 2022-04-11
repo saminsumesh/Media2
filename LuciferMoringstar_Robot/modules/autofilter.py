@@ -27,12 +27,10 @@ async def group_filters(client, message):
                 )
         else:
             if SPELL_MODE:  
+                reply = search.replace(" ", "+")
                 reply_markup = InlineKeyboardMarkup([[
-                 InlineKeyboardButton("🔮IMDB🔮", callback_data="imdb")
-                 ],[
-                 InlineKeyboardButton("🍭Reason", callback_data="reason"),
-                 InlineKeyboardButton("🍬Retry", callback_data="Retry")
-                 ]]  
+                 InlineKeyboardButton("🔮IMDB🔮", url=https://www.imdb.com/find?q={reply}")
+                 ]]
                 )    
                 imdb=await get_poster(search)
                 if imdb and imdb.get('poster'):
