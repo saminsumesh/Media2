@@ -12,7 +12,7 @@ async def group_filters(client, message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
     if 2 < len(message.text) < 50:    
-        btn = [1]
+        btn = list(split_list(btn, 10)) 
         search = message.text
         files = await get_filter_results(query=search)
         if files:
