@@ -63,7 +63,7 @@ async def about(bot, message):
              InlineKeyboardButton("Movies", url="https://t.me/AugustCinemaReq"),
              InlineKeyboardButton("Back", callback_data="start")
              ]]               
-    reply_photo(
+    await message.reply_photo(
         photo = choice(BOT_PICS),
         caption=LuciferMoringstar.ABOUT_MSG.format(mention=message.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME, dev_name=DEV_NAME),
         reply_markup=InlineKeyboardMarkup(button))
