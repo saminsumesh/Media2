@@ -16,16 +16,17 @@ async def group_filters(client, message):
         search = message.text
         files = await get_filter_results(query=search)
         if files:
+
             for file in files:
                 file_id = file.file_id
-                filename = f"{get_size(file.file_size)} {file.file_name}"
+                file_name = file.file_name
+                file_size = get_size(file.file_size)
                 btn.append(
-                    [InlineKeyboardButton(text=f'🔮 {search}', url=f'{search}),
-                    InlineKeyboardButton("🍭 Tips", callback_data="tips")]
+                    [InlineKeyboardButton(text=f'🔮 {search}', url=f'{search})
                 )
-                btn.append(
-                    [InlineKeyboardButton(text=f"{filename}", callback_data=f"lucifermoringstar_robot#{file_id}")]
-                )
+                btn.append([
+                            InlineKeyboardButton(text=f'🍭 {file_name}', url=f''),
+                            InlineKeyboardButton(text=f'🍬 {file_size}', url=f'')])
         else:
             if SPELL_MODE:
                 reply = search.replace(" ", '+')  
