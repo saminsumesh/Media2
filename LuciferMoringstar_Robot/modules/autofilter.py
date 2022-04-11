@@ -31,7 +31,7 @@ async def group_filters(client, message):
                  InlineKeyboardButton("🔮IMDB🔮", callback_data="imdb")
                  ],[
                  InlineKeyboardButton("🍭Reason", callback_data="reason"),
-                 InlineKeyboardButton("🍬Retry", callback_data="Retry").
+                 InlineKeyboardButton("🍬Retry", callback_data="Retry")
                  ]]  
                 )    
                 imdb=await get_poster(search)
