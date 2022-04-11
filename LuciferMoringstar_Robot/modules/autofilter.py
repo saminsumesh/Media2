@@ -29,19 +29,13 @@ async def group_filters(client, message):
             if SPELL_MODE:
                 reply = search.replace(" ", '+')  
                 reply_markup = InlineKeyboardMarkup([[
-                 InlineKeyboardButton("🎗️ Google 🎗️", url=f"https://www.google.com/search?q={reply}")
-                 ],[
-                 InlineKeyboardButton("🔍IMDB", url=f"https://www.imdb.com/find?q={reply}"),
-                 InlineKeyboardButton("Wikipedia🔎", url=f"https://en.m.wikipedia.org/w/index.php?search={reply}")
+                 InlineKeyboardButton("🔮IMDB🔮", url=f"https://www.imdb.com/find?q={reply}")
                  ]]  
                 )    
-                LuciferMoringstar_delete=await message.reply_text(
-                    text=SET_SPEL_M.format(query=search, mention=message.from_user.mention),
-                    reply_markup=reply_markup                 
-                )
-                await asyncio.sleep(60) 
-                await LuciferMoringstar_delete.delete()
-            return
+                imdb=await get_poster(search)
+                if imdb and imdb.get('poster'):
+                    await message.reply_photo(photo=imdb.get('poster'), caption=LuciferMoringstar.GET_MOVIE_1.format(mention=message.from_user.mention, query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), url=imdb['url']), reply_markup=reply_markup) 
+             return
         if not btn:
             return
 
