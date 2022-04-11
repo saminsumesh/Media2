@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserIsBlocked, PeerIdInvalid
 
 from LuciferMoringstar_Robot.admins.index_files import index_files_to_db
-from LuciferMoringstar_Robot.database.autofilter_db import get_file_details
+from LuciferMoringstar_Robot.database.autofilter_db import get_file_details, get_poster
 from LuciferMoringstar_Robot.database._utils import get_size, is_subscribed
 from LuciferMoringstar_Robot.database._utils import lucifer_temp
 
@@ -323,9 +323,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             await query.message.delete()
 
         elif query.data == "imdb":
-            imdb=await get_poster(search)
-            if imdb and imdb.get('poster'):
-                await query.answer(query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), show_alert=True)
+            await query.answer(text=LuciferMoringstar.GET_MOVIE_1.format(query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), show_alert=True))
         
         elif query.data == "reason":
             await query.answer("Will be added soon", show_alert=True)
