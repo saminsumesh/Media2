@@ -1,31 +1,18 @@
 class LuciferMoringstar(object):
 
-    DEFAULT_MSG = """👋Hello {mention}.....!!!\nIt's Power Full [{bot_name}](t.me/{bot_username}) Here 😎\nAdd Me To Your Group And Make Sure I'm an Admin There! \nAnd Enjoy My Pever Show.....!!!🤪"""
+    DEFAULT_MSG = """Hey {mention} 🔥, I'm [{bot_name}](t.me/{bot_username}), Just add me to your groups and make me as admin to get some exclusive features!!"""
 
-    HELP_MSG = """**Help Veno Monuse 🤣**"""
+    HELP_MSG = """This is my menu"""
 
     ABOUT_MSG = """
-🤖 My Name [{bot_name}](t.me/{bot_username})
-
-🧑 My Dev : [PR0FESS0R-99](t.me/PR0FESS0R_99)
-
-🧑 My Creator : {dev_name}
-
-📦 My Source : [Click Here](https://github.com/PR0FESS0R-99/LuciferMoringstar_Robot)
-
-📺 My Tutorial : [Ckick Here](https://youtu.be/FCU_XJmyG_U)
-
-🗃️ My Library : [Pyrogram](https://youtu.be/Af055Eozk9s)
-
-🖇️ My Language : [Python3](https://youtu.be/Af055Eozk9s)
-
-🗃️ My Database : [Mongodb](https://youtu.be/gBLTsH-IXr0)
-
-🗳️ My Server : [Heroku](https://youtu.be/xcZD55td6Vw)
-
-🏷️ My Updates : [Mo Tech](t.me/Mo_Tech_YT)
-
-🗣️ My Support : [Any Doubt](t.me/Mo_Tech_Group)"""
+• Name [{bot_name}](t.me/{bot_username})
+• Developer : {dev_name}
+• Base Repo : [Media-Search-Bot](https://GitHub.com/subinps/media-search-bot)
+• Library : [Pyrogram](https://docs.pyrogram.org)
+• Language : [Python3](https://python.org)
+• Database : [Mongodb](http://mongodb.com)
+• Server : [Railway](https://Railway.app)
+"""
 
     FILE_CAPTIONS = """Hello 👋 {mention}\n\n📁Title {title}\n\n🔘Size {size}"""
 
@@ -41,9 +28,9 @@ class LuciferMoringstar(object):
 
     ADD_YOUR_GROUP = """**__ഞാൻ ജോലി ചെയ്യുന്ന ഗ്രൂപ്പിൽ ചേരൂ, നിങ്ങൾക്ക് ആവശ്യമുള്ള എല്ലാ സിനിമകളും ആ ഗ്രൂപ്പിൽ അഭ്യർത്ഥിക്കാം! ഇവിടെ അഭ്യർത്തിക്കരുത്..😤__**"""
     SPELL_CHECK = """
-**Hello 👋{mention}**,
+**Hey {mention} ✨**,
 
-**Couldn't Find {query}?  Please Click Your Request Movie Name**"""
+**Couldn't Find {query}?  Please Choose the correct name**"""
     GET_MOVIE_1 = """
 📽️ **Requested Movie** : [{query}]({url})
 👤 **Requested By** : {mention}
