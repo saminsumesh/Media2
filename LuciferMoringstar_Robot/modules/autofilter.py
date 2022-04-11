@@ -43,8 +43,8 @@ async def group_filters(client, message):
         if not btn:
             return
 
-        if len(btn) > 05: 
-            btns = list(split_list(btn, 05)) 
+        if len(btn) > 5: 
+            btns = list(split_list(btn, 5)) 
             keyword = f"{message.chat.id}-{message.message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
@@ -137,8 +137,8 @@ async def pm_autofilter(client, message):
         if not btn:
             return
 
-        if len(btn) > 05: 
-            btns = list(split_list(btn, 05)) 
+        if len(btn) > 5: 
+            btns = list(split_list(btn, 5)) 
             keyword = f"{message.chat.id}-{message.message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
