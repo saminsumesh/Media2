@@ -279,15 +279,21 @@ async def cb_handler(client: lucifermoringstar_robot, query):
         elif query.data == "help":
             buttons = [[
               InlineKeyboardButton("Filters", callback_data="autofilter"),
-              InlineKeyboardButton("Home", callback_data="start"),
+              InlineKeyboardButton("Admins", callback_data="bot_owner"),
+              ],[
+              InlineKeyboardButton("Ban", callback_data="ban"),
+              InlineKeyboardButton("Mute", callback_data="mute"),
+              ],[
+              InlineKeyboardButton("Back", callback_data="start"),
               InlineKeyboardButton("About", callback_data="about")
               ]]               
             await query.message.edit(text=LuciferMoringstar.HELP_MSG.format(mention=query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "about":
             buttons = [[
-             InlineKeyboardButton("Home", callback_data="start"),
-             InlineKeyboardButton("Close", callback_data="close")
+             InlineKeyboardButton("Source", url="https://t.me/ippotharam34"),
+             InlineKeyboardButton("Movies", url="https://t.me/AugustCinemaReq"),
+             InlineKeyboardButton("Back", callback_data="help")
              ]]               
             await query.message.edit(text=LuciferMoringstar.ABOUT_MSG.format(mention=query.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME, dev_name=DEV_NAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
@@ -365,7 +371,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
 
 
     else:
-        await query.answer("Please Request Your Own!!
+        await query.answer("Please Request Your Own!!")
 ",show_alert=True)
 
 
