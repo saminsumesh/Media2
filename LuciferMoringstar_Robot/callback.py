@@ -279,13 +279,13 @@ async def cb_handler(client: lucifermoringstar_robot, query):
         elif query.data == "help":
             buttons = [[
               InlineKeyboardButton("Filters", callback_data="autofilter"),
-              InlineKeyboardButton("Admins", callback_data="bot_owner"),
+              InlineKeyboardButton("Pin", callback_data="pin"),
               ],[
               InlineKeyboardButton("Ban", callback_data="ban"),
               InlineKeyboardButton("Mute", callback_data="mute"),
               ],[
-              InlineKeyboardButton("Back", callback_data="start"),
-              InlineKeyboardButton("About", callback_data="about")
+              InlineKeyboardButton("Admins", callback_data="bot_owner"),
+              InlineKeyboardButton("Back", callback_data="start")
               ]]               
             await query.message.edit(text=LuciferMoringstar.HELP_MSG.format(mention=query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
