@@ -21,7 +21,7 @@ async def group_filters(client, message):
                 file_name = file.file_name
                 file_size = get_size(file.file_size)
                 btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
-                ),
+                )
                 btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', callback_data=f"lucifermoringstar_robot#{file_id}"),
                             InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"lucifermoringstar_robot#{file_id}")]
                 )
@@ -122,9 +122,12 @@ async def pm_autofilter(client, message):
         if files:
             for file in files:
                 file_id = file.file_id
-                filename = f"{get_size(file.file_size)} {file.file_name}"
-                btn.append(
-                    [InlineKeyboardButton(text=f"{filename}", callback_data=f"pmfile#{file_id}")]
+                file_name = file.file_name
+                file_size = get_size(file.file_size)
+                btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
+                )
+                btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', callback_data=f"pmfiles#{file_id}"),
+                            InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"pmfiles#{file_id}")]
                 )
         else:
             await message.reply_photo(
