@@ -21,8 +21,8 @@ async def group_filters(client, message):
                 file_name = file.file_name
                 file_size = get_size(file.file_size)
                 btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")])
-                btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', url=f"lucifermoringstar_robot#{file_id}"),
-                            InlineKeyboardButton(text=f'🍬 {file_size}', url=f"lucifermoringstar_robot#{file_id}")])
+                btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', callback_data=f"lucifermoringstar_robot#{file_id}"),
+                            InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"lucifermoringstar_robot#{file_id}")])
         else:
             if SPELL_MODE:
                 reply = search.replace(" ", '+')  
@@ -57,7 +57,7 @@ async def group_filters(client, message):
                  InlineKeyboardButton("Close 🗑️", callback_data="close")]
             )
             buttons.append(
-                [InlineKeyboardButton(text="🤖 CHECK MY PM 🤖", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
+                [InlineKeyboardButton(text="Check PM", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
             )
 
             imdb=await get_poster(search)
@@ -86,7 +86,7 @@ async def group_filters(client, message):
              InlineKeyboardButton("Close 🗑️", callback_data="close")]
         )
         buttons.append(
-            [InlineKeyboardButton(text="🤖 CHECK MY PM 🤖", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
+            [InlineKeyboardButton(text="Check PM", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
         )
 
         imdb=await get_poster(search)
@@ -122,8 +122,8 @@ async def pm_autofilter(client, message):
                 file_id = file.file_id
                 file_name = file.file_name
                 file_size = get_size(file.file_size)
-                btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', url=f"pmfile#{file_id}"),
-                            InlineKeyboardButton(text=f'🍬 {file_size}', url=f"pmfile#{file_id}")])
+                btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', callback_data=f"pmfile#{file_id}"),
+                            InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"pmfile#{file_id}")])
         else:
             await message.reply_photo(
                 photo=random.choice(PICS),
