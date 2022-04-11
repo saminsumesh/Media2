@@ -43,13 +43,13 @@ async def start_message(bot, message):
 async def help(bot, message):
     buttons = [[
         InlineKeyboardButton("Filters", callback_data="autofilter"),
-        InlineKeyboardButton("Admins", callback_data="bot_owner"),
+        InlineKeyboardButton("Pin", callback_data="pin"),
         ],[
         InlineKeyboardButton("Ban", callback_data="ban"),
         InlineKeyboardButton("Mute", callback_data="mute"),
         ],[
-        InlineKeyboardButton("Back", callback_data="start"),
-        InlineKeyboardButton("About", callback_data="about")
+        InlineKeyboardButton("Admins", callback_data="bot_owner"),
+        InlineKeyboardButton("Back", callback_data="start")
         ]]
     await message.reply_photo(
         photo = choice(BOT_PICS),
@@ -61,7 +61,7 @@ async def about(bot, message):
     buttons = [[
              InlineKeyboardButton("Source", url="https://t.me/ippotharam34"),
              InlineKeyboardButton("Movies", url="https://t.me/AugustCinemaReq"),
-             InlineKeyboardButton("Back", callback_data="help")
+             InlineKeyboardButton("Back", callback_data="start")
              ]]               
     reply_photo(
         photo = choice(BOT_PICS),
