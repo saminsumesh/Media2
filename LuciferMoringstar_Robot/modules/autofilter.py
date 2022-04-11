@@ -21,6 +21,7 @@ async def group_filters(client, message):
                 file_name = file.file_name
                 file_size = get_size(file.file_size)
                 btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")])
+                return
                 btn.append([InlineKeyboardButton(text=f'🍭 {file_name}', callback_data=f"lucifermoringstar_robot#{file_id}"),
                             InlineKeyboardButton(text=f'🍬 {file_size}', callback_data=f"lucifermoringstar_robot#{file_id}")])
         else:
@@ -43,8 +44,8 @@ async def group_filters(client, message):
         if not btn:
             return
 
-        if len(btn) > 5: 
-            btns = list(split_list(btn, 5)) 
+        if len(btn) > 10: 
+            btns = list(split_list(btn, 10)) 
             keyword = f"{message.chat.id}-{message.message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
@@ -137,8 +138,8 @@ async def pm_autofilter(client, message):
         if not btn:
             return
 
-        if len(btn) > 5: 
-            btns = list(split_list(btn, 5)) 
+        if len(btn) > 10: 
+            btns = list(split_list(btn, 10)) 
             keyword = f"{message.chat.id}-{message.message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
