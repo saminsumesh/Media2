@@ -371,8 +371,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
 
 
     else:
-        await query.answer("Please Request Your Own!!")
-",show_alert=True)
+        await query.answer("Please Request Your Own!!",show_alert=True)
 
 
 
