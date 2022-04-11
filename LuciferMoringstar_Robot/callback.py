@@ -323,7 +323,9 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             await query.message.delete()
 
         elif query.data == "imdb":
-            await query.answer(query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), show_alert=True)
+            imdb=await get_poster(search)
+            if imdb and imdb.get('poster'):
+                await query.answer(query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), show_alert=True)
         
         elif query.data == "reason":
             await query.answer("Will be added soon", show_alert=True)
