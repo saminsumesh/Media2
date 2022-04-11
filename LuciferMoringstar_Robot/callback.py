@@ -322,6 +322,12 @@ async def cb_handler(client: lucifermoringstar_robot, query):
         elif query.data == "close":
             await query.message.delete()
 
+        elif query.data == "imdb":
+            await query.answer(title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), show_alert=True)
+        
+        elif query.data == "reason":
+            await query.answer("Will be added soon", show_alert=True)
+
 # ---------- ⚠️ [ | Other | ] ⚠️ ---------- #
 
         elif query.data.startswith("index"):
