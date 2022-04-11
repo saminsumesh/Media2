@@ -18,7 +18,7 @@ async def group_filters(client, message):
         if files:
             for file in files:
                # btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
-                )
+               # )
                 file_id = file.file_id
                 file_name = file.file_name
                 file_size = get_size(file.file_size)
