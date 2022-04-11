@@ -201,7 +201,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
 # ---------- 📁 [ | 𝗚𝗘𝗧 𝗙𝗜𝗟𝗘𝗦 | ] 📁 ---------- #
 
 
-        elif query.data.startswith("samin"):
+        elif query.data.startswith("lucifermoringstar_robot"):
             ident, file_id = query.data.split("#")
             files_ = await get_file_details(file_id)
             if not files_:
@@ -361,11 +361,12 @@ async def cb_handler(client: lucifermoringstar_robot, query):
 
 
         elif query.data == "pages":
-            await query.answer("@LuciferMoringstar_Robot")
+            await query.answer("Total Pages")
 
 
     else:
-        await query.answer("Please Request",show_alert=True)
+        await query.answer("Please Request Your Own!!
+",show_alert=True)
 
 
 
