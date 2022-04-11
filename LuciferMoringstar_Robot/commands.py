@@ -41,7 +41,7 @@ async def start_message(bot, message):
    
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["help"]))
 async def help(bot, message):
-    buttons = [[
+    button = [[
         InlineKeyboardButton("Filters", callback_data="autofilter"),
         InlineKeyboardButton("Pin", callback_data="pin"),
         ],[
@@ -58,7 +58,7 @@ async def help(bot, message):
       
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["about"]))
 async def about(bot, message):
-    buttons = [[
+    button = [[
              InlineKeyboardButton("Source", url="https://t.me/ippotharam34"),
              InlineKeyboardButton("Movies", url="https://t.me/AugustCinemaReq"),
              InlineKeyboardButton("Back", callback_data="start")
