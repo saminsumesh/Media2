@@ -18,11 +18,10 @@ class LuciferMoringstar(object):
 • Server : [Railway](https://Railway.app)
 """
 
-    FILE_CAPTIONS = """Hello 👋 {mention}\n\n📁Title {title}\n\n🔘Size {size}"""
+    FILE_CAPTIONS = """Hey {mention}\n\n📁 Filename: {title}\n\n💽 Size: {size}"""
 
     PR0FESS0R_99 = """
 **ADMINS COMMANDS**
-
  » /broadcast - Reply Any Media Or Message
  » /delete - Reply Files
  » /deleteall - Delete All Files
