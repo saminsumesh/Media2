@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from LuciferMoringstar_Robot.database.users_chats_db import db
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from LuciferMoringstar_Robot.database.ia_filterdb import Media
 from LuciferMoringstar_Robot.database._utils import get_size
 from translation import LuciferMoringstar
