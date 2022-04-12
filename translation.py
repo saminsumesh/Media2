@@ -60,6 +60,6 @@ class LuciferMoringstar(object):
 
 📈 Total Chats: <code>{}</code>
 
-💿 Used Storage: <code>{}</code> MB
+💿 Used Storage: <code>{}</code>
 
-💽 Free Storage: <code>{}</code> MB"""
+💽 Free Storage: <code>{}</code>"""
