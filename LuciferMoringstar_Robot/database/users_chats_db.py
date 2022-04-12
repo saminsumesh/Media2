@@ -34,14 +34,14 @@ class Database:
         return count
 
     async def get_all_users(self):
-        return self.col.find({}
+        return self.col.find({})
 
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
 
 
     async def delete_user(self, user_id):
-        await self.dcol.delete_many({'id': int(user_id)})
+        await self.col.delete_many({'id': int(user_id)})
 
 
 db = Database()
