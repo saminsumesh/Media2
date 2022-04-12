@@ -8,6 +8,10 @@ from translation import LuciferMoringstar
 
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
+    bun=await message.reply_text("Processing")
+    await asyncio.sleep(5)
+    nun=await bun.edit("Connecting to MongoDB")
+    await asyncio.sleep(5) 
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
     files = await Media.count_documents()
@@ -15,10 +19,6 @@ async def get_ststs(bot, message):
     free = 536870912 - size
     size = get_size(size)
     free = get_size(free)
-    bun=await message.reply_text("Processing")
-    await asyncio.sleep(5)
-    nun=await bun.edit("Connecting to MongoDB")
-    await asyncio.sleep(5) 
     await nun.edit(
        text=LuciferMoringstar.STATUS_TXT.format(files, total_users, totl_chats, size, free),
        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Back", callback_data="help"),
