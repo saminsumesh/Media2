@@ -323,11 +323,11 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             await query.message.delete()
 
         elif query.data == "imdb":
-            imdb = await get_poster(query.message.reply_to_message.text)
-            await query.answer(f'🎬 Title: imdb.get("title")\n🎭 Genres: imdb.get("genres")', show_alert=True)
-
+            imdb=await get_poster(search)
+            if imdb and imdb.get('poster'):
+                await query.answer(f"title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year')", show_alert=True)
         elif query.data == "reason":
-            await query.answer(, show_alert=True)
+            await query.answer("🪐• നിങ്ങൾ നോക്കുന്ന മൂവിയുടെ പേര് കറക്റ്റ് ആണോ എന്ന് നോക്കു 🪐", show_alert=True)
 
 # ---------- ⚠️ [ | Other | ] ⚠️ ---------- #
 
