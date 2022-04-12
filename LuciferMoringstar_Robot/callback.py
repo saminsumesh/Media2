@@ -324,7 +324,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
 
         elif query.data == "imdb":
             imdb = await get_poster(query.message.reply_to_message.text)
-            await query.answer(f"🎬 Title: {imdb['title']}\n🎭 Genres: {imdb['genres']}", show_alert=True)
+            await query.answer(f"🎬 Title: imdb.get('title')\n🎭 Genres: imdb.get("genres")", show_alert=True)
 
         elif query.data == "reason":
             await query.answer(, show_alert=True)
