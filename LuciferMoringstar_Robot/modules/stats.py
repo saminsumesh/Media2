@@ -1,3 +1,4 @@
+import asyncio 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from LuciferMoringstar_Robot.database.users_chats_db import db
@@ -15,7 +16,9 @@ async def get_ststs(bot, message):
     size = get_size(size)
     free = get_size(free)
     bun=await message.reply_text("Processing")
+    await asyncio.sleep(5)
     nun=await bun.edit("Connecting to MongoDB")
+    await asyncio.sleep(5) 
     await nun.edit(
        text=LuciferMoringstar.STATUS_TXT.format(files, total_users, totl_chats, size, free),
        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Back", callback_data="help"),
