@@ -36,13 +36,12 @@ class LuciferMoringstar(object):
 
 **Couldn't Find {query}?  Please Choose the correct name**"""
     GET_MOVIE_1 = """
-📽️ **Requested Movie** : [{query}]({url})
-👤 **Requested By** : {mention}
-
 🎬 **Title** : [{title}]({url})
+🎭 **Genre** : {genres}
+
+⌛️ **Duration** : {dur}
 📆 **Release** : {year}
-🌟 **Rating** : {rating}/10
-🗨️ **Genres** : {genres}
+🎙️ **Language** : #{lang}
 
 📕 **Short Info** : {short}
 """
