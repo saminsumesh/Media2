@@ -3,10 +3,13 @@ import motor.motor_asyncio # pylint: disable=import-error
 from config import DATABASE_URI, DATABASE_NAME
 
 class Database:
-    def __init__(self):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(DATABASE_URI)
-        self.db = self._client[DATABASE_NAME]
-        self.dcol = self.db.users
+
+    def __init__(self, uri, database_name):
+        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
+        self.db = self._client[database_name]
+        self.col = self.db.users
+        self.grp = self.db.groups
+
         
     def new_user(self, id):
         return dict(
@@ -20,10 +23,10 @@ class Database:
 
     async def add_user(self, id):
         user = self.new_user(id)
-        await self.dcol.insert_one(user)
+        await self.col.insert_one(user)
 
     async def is_user_exist(self, id):
-        user = await self.dcol.find_one({'id':int(id)})
+        user = await self.col.find_one({'id':int(id)})
         return bool(user)
 
     async def total_chat_count(self):
@@ -31,7 +34,7 @@ class Database:
         return count
 
     async def get_all_users(self):
-        return self.dcol.find({})
+        return self.col.find({}
 
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
