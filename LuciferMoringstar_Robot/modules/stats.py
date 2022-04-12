@@ -26,9 +26,9 @@ async def get_ststs(bot, message):
 @Client.on_message(filters.command("id"))
 async def id_find(bot, message):
     message_reply = reply_to_message.id
-    ID = message.from_user.id
+    id = message.from_user.id
     chat_id = message.chat.id
     if message_reply:
-       await message.reply_text(f"Your ID: {ID}")
+       await message.reply_text(f"Your ID: {id}")
     else:
        await message.reply_text(f"Chat ID: {chat_id}")
