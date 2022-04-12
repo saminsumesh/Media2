@@ -38,10 +38,13 @@ class LuciferMoringstar(object):
     GET_MOVIE_1 = """
 📽️ **Requested Movie** : [{query}]({url})
 👤 **Requested By** : {mention}
+
 🎬 **Title** : [{title}]({url})
 📆 **Year** : {year}
-🌟 **Rating** {rating}/10
-🗨️ **Genres** {genres}"""
+🌟 **Rating** : {rating}/10
+🗨️ **Genres** : {genres}
+📕 **Short Info** : {short}
+"""
 
 
     GET_MOVIE_2 = """
