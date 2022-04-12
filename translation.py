@@ -51,3 +51,13 @@ class LuciferMoringstar(object):
 👤 **Requested By** : {mention}
 
 © **{chat}**"""
+
+    STATUS_TXT = """🗃️ Total Files: <code>{}</code>
+
+📉 Total Users: <code>{}</code>
+
+📈 Total Chats: <code>{}</code>
+
+💿 Used Storage: <code>{}</code> MB
+
+💽 Free Storage: <code>{}</code> MB"""
