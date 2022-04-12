@@ -317,10 +317,10 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             await query.message.delete()
 
         elif query.data == "rfrsh":
-            await query.answer("Fetching MongoDb DataBase")
+            await query.answer("Refreshing Database")
             buttons = [[
                 InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-                InlineKeyboardButton('♻️', callback_data='rfrsh')
+                InlineKeyboardButton('♻️ Refresh', callback_data='rfrsh')
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
             total = await Media.count_documents()
