@@ -52,7 +52,9 @@ class LuciferMoringstar(object):
 
 © **{chat}**"""
 
-    STATUS_TXT = """🗃️ Total Files: <code>{}</code>
+    STATUS_TXT = """📈 Database Status of Sakura:
+
+🗃️ Total Files: <code>{}</code>
 
 📉 Total Users: <code>{}</code>
 
