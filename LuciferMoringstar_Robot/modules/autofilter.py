@@ -16,7 +16,8 @@ async def group_filters(client, message):
         search = message.text
         files = await get_filter_results(query=search)
         if files:
-            btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
+            btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}"),
+                        InlineKeyboardButton("📂 Files {data["total"]", callback_data="filmwja")]
             )
             for file in files:
                 file_id = file.file_id
@@ -29,7 +30,7 @@ async def group_filters(client, message):
             if SPELL_MODE:  
                 reply = search.replace(" ", "+")
                 reply_markup = InlineKeyboardMarkup([[
-                 InlineKeyboardButton("🔮IMDB🔮", url=f"https://www.imdb.com/find?q={reply}'")
+                 InlineKeyboardButton("🔮IMDB🔮", callback_data="imdb")
                  ]]
                 )    
                 imdb=await get_poster(search)
