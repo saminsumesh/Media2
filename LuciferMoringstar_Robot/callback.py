@@ -323,7 +323,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             await query.message.delete()
 
         elif query.data == "imdb":
-            search = query.text
+            search = query.message.text
             imdb=await get_poster(search)
             if imdb and imdb.get('poster'):
                 await query.answer(f"title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year')", show_alert=True)
