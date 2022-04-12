@@ -38,9 +38,9 @@ class LuciferMoringstar(object):
 🎬 **Title** : [{title}]({url})
 🎭 **Genre** : {genres}
 
-⌛️ **Duration** : {dur}
+⌛️ **Duration** : {runtime}
 📆 **Release** : {year}
-🎙️ **Language** : #{lang}
+🎙️ **Language** : {languages}
 
 📕 **Short Info** : {short}
 """
