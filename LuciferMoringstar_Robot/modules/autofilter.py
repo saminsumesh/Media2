@@ -17,7 +17,7 @@ async def group_filters(client, message):
         files = await get_filter_results(query=search)
         if files:
             btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}"),
-                        InlineKeyboardButton("📂 Files {data["total"]", callback_data="filmwja")]
+                        InlineKeyboardButton(text=f"📂 Files {data['total']}", callback_data="filmwja")]
             )
             for file in files:
                 file_id = file.file_id
