@@ -29,7 +29,7 @@ async def group_filters(client, message):
             if SPELL_MODE:  
                 reply = search.replace(" ", "+")
                 reply_markup = InlineKeyboardMarkup([[
-                 InlineKeyboardButton("🔮IMDB🔮", callback_data="imdb"),
+                 InlineKeyboardButton("🔮IMDB🔮", url=f"https://imdb.com/find?q={reply}"),
                  InlineKeyboardButton("🪐 Reason", callback_data="reason")
                  ]]
                 )    
