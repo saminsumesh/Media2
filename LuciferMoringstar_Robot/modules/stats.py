@@ -6,7 +6,6 @@ from translation import LuciferMoringstar
 
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
-    rju = await message.reply('Fetching stats..')
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
     files = await Media.count_documents()
@@ -14,4 +13,8 @@ async def get_ststs(bot, message):
     free = 536870912 - size
     size = get_size(size)
     free = get_size(free)
-    await rju.edit(LuciferMoringstar.STATUS_TXT.format(files, total_users, totl_chats, size, free))
+    await message.reply_text(
+       LuciferMoringstar.STATUS_TXT.format(files, total_users, totl_chats, size, free),
+       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Back", callback_data="help"),
+                                           InlineKeyboardButton("Refresh", callback_data="refresh")]])
+    )
