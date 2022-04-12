@@ -22,3 +22,13 @@ async def get_ststs(bot, message):
        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🪐 Back", callback_data="help"),
                                            InlineKeyboardButton("♻️ Refresh", callback_data="rfrsh")]])
     )
+
+@Client.on_message(filters.command("id"))
+async def id_find(bot, message):
+    message_reply = reply_to_message.id
+    ID = message.from_user.id
+    chat_id = message.chat.id
+    if message_reply:
+       await message.reply_text(f"Your ID: {ID}")
+    else:
+       await message.reply_text(f"Chat ID: {chat_id}")
