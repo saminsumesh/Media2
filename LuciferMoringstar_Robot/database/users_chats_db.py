@@ -37,7 +37,7 @@ class Database:
         return self.col.find({})
 
     async def get_db_size(self):
-        return (await self.db.command("dbstats"))['dataSize']
+        return (await self.db.command("dbstats"))['dataSize'])
 
 
     async def delete_user(self, user_id):
