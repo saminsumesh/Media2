@@ -30,7 +30,8 @@ async def group_filters(client, message):
             if SPELL_MODE:  
                 reply = search.replace(" ", "+")
                 reply_markup = InlineKeyboardMarkup([[
-                 InlineKeyboardButton("🔮IMDB🔮", callback_data="imdb")
+                 InlineKeyboardButton("🔮IMDB🔮", callback_data="imdb"),
+                 InlineKeyboardButton("🪐 Reason", callback_data="reason")
                  ]]
                 )    
                 imdb=await get_poster(search)
