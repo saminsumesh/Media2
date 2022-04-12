@@ -14,7 +14,7 @@ async def get_ststs(bot, message):
     size = get_size(size)
     free = get_size(free)
     await message.reply_text(
-       LuciferMoringstar.STATUS_TXT.format(files, total_users, totl_chats, size, free),
+       text=LuciferMoringstar.STATUS_TXT.format(files, total_users, totl_chats, size, free),
        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Back", callback_data="help"),
                                            InlineKeyboardButton("Refresh", callback_data="refresh")]])
     )
