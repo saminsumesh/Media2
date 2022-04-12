@@ -14,6 +14,10 @@ class Database:
             join_date = datetime.date.today().isoformat()
         )
 
+    async def total_users_count(self):
+        count = await self.col.count_documents({})
+        return count
+
     async def add_user(self, id):
         user = self.new_user(id)
         await self.dcol.insert_one(user)
@@ -22,12 +26,16 @@ class Database:
         user = await self.dcol.find_one({'id':int(id)})
         return bool(user)
 
-    async def total_users_count(self):
-        count = await self.dcol.count_documents({})
+    async def total_chat_count(self):
+        count = await self.grp.count_documents({})
         return count
 
     async def get_all_users(self):
         return self.dcol.find({})
+
+    async def get_db_size(self):
+        return (await self.db.command("dbstats"))['dataSize']
+
 
     async def delete_user(self, user_id):
         await self.dcol.delete_many({'id': int(user_id)})
