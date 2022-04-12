@@ -28,5 +28,5 @@ async def id_find(bot, message):
     message_reply = reply_to_message.id
     id = message.from_user.id
     chat_id = message.chat.id
-    await message.reply_text(f"Your ID: `{id}`", reply_to_message=message_reply)
+    await message.reply_text(f"Your ID: `{id}`", reply_to_message=reply_to_message.id)
    # if message is ["Supergroup"]
