@@ -4,6 +4,8 @@ from pyrogram import Client as lucifermoringstar_robot
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserIsBlocked, PeerIdInvalid
 
+from LuciferMoringstar_Robot.database.users_chats_db import db
+from LuciferMoringstar_Robot.database.ia_filterdb import Media
 from LuciferMoringstar_Robot.admins.index_files import index_files_to_db
 from LuciferMoringstar_Robot.database.autofilter_db import get_file_details, get_poster
 from LuciferMoringstar_Robot.database._utils import get_size, is_subscribed
@@ -314,11 +316,26 @@ async def cb_handler(client: lucifermoringstar_robot, query):
         elif query.data == "close":
             await query.message.delete()
 
-        elif query.data == "imdb":
-            search = query.message.text
-            imdb=await get_poster(search)
-            if imdb and imdb.get('poster'):
-                await query.answer(f"title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year')", show_alert=True)
+        elif query.data == "rfrsh":
+            await query.answer("Fetching MongoDb DataBase")
+            buttons = [[
+                InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
+                InlineKeyboardButton('♻️', callback_data='rfrsh')
+            ]]
+            reply_markup = InlineKeyboardMarkup(buttons)
+            total = await Media.count_documents()
+            users = await db.total_users_count()
+            chats = await db.total_chat_count()
+            monsize = await db.get_db_size()
+            free = 536870912 - monsize
+            monsize = get_size(monsize)
+            free = get_size(free)
+            await query.message.edit_text(
+                text=LuciferMoringstar.STATUS_TXT.format(total, users, chats, monsize, free),
+                reply_markup=reply_markup,
+                parse_mode='html'
+           )
+
         elif query.data == "reason":
             await query.answer("• Please check the name\n• Maybe the film haven't released yet!!", show_alert=True)
 
