@@ -44,4 +44,4 @@ class Database:
         await self.col.delete_many({'id': int(user_id)})
 
 
-db = Database()
+db = Database(DATABASE_URI, DATABASE_NAME)
