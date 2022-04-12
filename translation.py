@@ -40,9 +40,10 @@ class LuciferMoringstar(object):
 👤 **Requested By** : {mention}
 
 🎬 **Title** : [{title}]({url})
-📆 **Year** : {year}
+📆 **Release** : {year}
 🌟 **Rating** : {rating}/10
 🗨️ **Genres** : {genres}
+
 📕 **Short Info** : {short}
 """
 
