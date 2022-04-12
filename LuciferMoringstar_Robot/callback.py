@@ -47,7 +47,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                      InlineKeyboardButton("Close 🗑️", callback_data="close")]
                 )
                 buttons.append(
-                    [InlineKeyboardButton(text="🔮 IMDB", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
+                    [InlineKeyboardButton(text="🔮 IMDB", callback_data="imdb")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -65,7 +65,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                      InlineKeyboardButton("Close 🗑️", callback_data="close")]
                 )
                 buttons.append(
-                    [InlineKeyboardButton(text="🤖 CHECK MY PM 🤖", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
+                    [InlineKeyboardButton(text="Check PM", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
                 )
 
                 await query.edit_message_reply_markup( 
@@ -92,7 +92,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                      InlineKeyboardButton("Close 🗑️", callback_data="close")]
                 )
                 buttons.append(
-                    [InlineKeyboardButton(text="🤖 CHECK MY PM 🤖", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
+                    [InlineKeyboardButton(text="Check PM", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
                 )
                 await query.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
@@ -109,7 +109,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                      InlineKeyboardButton("Close 🗑️", callback_data="close")]
                 )
                 buttons.append(
-                    [InlineKeyboardButton(text="🤖 CHECK MY PM 🤖", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
+                    [InlineKeyboardButton(text="Check PM", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
                 )
 
                 await query.edit_message_reply_markup( 
