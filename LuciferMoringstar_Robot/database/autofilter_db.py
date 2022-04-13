@@ -217,6 +217,8 @@ async def get_poster(query, bulk=False, id=False):
         'poster': poster,
         'plot': plot,
         'rating': rating,
+        'runtimes': runtime,
+        'languages': languages,
         'url':f'https://www.imdb.com/title/tt{movieid}'
 
     }
