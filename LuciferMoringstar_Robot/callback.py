@@ -216,7 +216,11 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                         caption=caption
                         )
                     message = query.message.reply_to_message
-                    humm = [[InlineKeyboardButton("🚀 GET FILE 🚀", url=f"{rd.link}")],[InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close")]])
+                    humm = [[
+                             InlineKeyboardButton("🚀 GET FILE 🚀", url=f"{rd.link}")
+                           ],[
+                             InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close")
+                           ]]
                     reply_markup=InlineKeyboardMarkup(humm)
                     yok = await message.reply_text(text=LuciferMoringstar.CP_DELETE.format(title= '' if title is None else title, size='' if size is None else size, caption='' if files.caption is None else files.caption), reply_markup=reply_markup)
                     await asyncio.sleep(1000)
