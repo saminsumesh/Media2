@@ -63,3 +63,11 @@ class LuciferMoringstar(object):
 💿 Used Storage: <code>{}</code>
 
 💽 Free Storage: <code>{}</code>"""
+
+    GET_MOVIE_7 = """
+🎬 **Title** : [{title}]({url})
+🎭 **Genre** : {genres}
+📆 **Release** : {year}
+📕 **Short Info** : {short}
+"""
+
