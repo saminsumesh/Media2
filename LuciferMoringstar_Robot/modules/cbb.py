@@ -17,13 +17,13 @@ async def channel_post(client: Client, message: Message):
         await asyncio.sleep(e.x)
         post_message = await message.copy(chat_id = CHANNEL_ID, disable_notification=True)
     except:
-        await reply_text.edit_text("Что-то не так..!")
+        await reply_text.edit_text("Saving to Database.!")
         return
     string = f"get-{post_message.message_id}"
     string_bytes = string.encode("ascii")
     base64_bytes = base64.b64encode(string_bytes)
     base64_string = base64_bytes.decode("ascii")
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    link = f"https://t.me/SakuraFilterBot?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Ссылка", url=f'https://telegram.me/share/url?url={link}')]])
     await reply_text.edit(f"<b>Ссылка на загрузку</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview = True)
 
@@ -56,6 +56,6 @@ async def batch(client: Client, message: Message):
     string_bytes = string.encode("ascii")
     base64_bytes = base64.b64encode(string_bytes)
     base64_string = base64_bytes.decode("ascii")
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    link = f"https://t.me/Sakurafilterbot?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Ссылка", url=f'https://telegram.me/share/url?url={link}')]])
     await second_message.reply_text(f"<b>Ссылка на скачивание</b>\n\n{link}", quote=True, reply_markup=reply_markup)
