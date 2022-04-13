@@ -4,7 +4,7 @@ from pyrogram import Client as LuciferMoringstar_Robot
 from function import encode, get_message_id
 
 @LuciferMoringstar_Robot.on_message(filters.private & filters.command('batch'))
-async def batch(client: Client, message: Message):
+async def batch(client: LuciferMoringstar_Robot, message: Message):
     while True:
         try:
             first_message = await client.ask(text = "Forward the First Message from DB Channel (with Quotes)..\n\nor Send the DB Channel Post Link", chat_id = message.from_user.id, filters=(filters.forwarded | (filters.text & ~filters.forwarded)), timeout=60)
@@ -38,7 +38,7 @@ async def batch(client: Client, message: Message):
 
 
 @LuciferMoringstar_Robot.on_message(filters.private & filters.user(ADMINS) & filters.command('genlink'))
-async def link_generator(client: Client, message: Message):
+async def link_generator(client: LuciferMoringstar_Robot, message: Message):
     while True:
         try:
             channel_message = await client.ask(text = "Forward Message from the DB Channel (with Quotes)..\nor Send the DB Channel Post link", chat_id = message.from_user.id, filters=(filters.forwarded | (filters.text & ~filters.forwarded)), timeout=60)
