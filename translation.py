@@ -71,3 +71,11 @@ class LuciferMoringstar(object):
 📕 **Short Info** : {short}
 """
 
+    CP_DELETE = """Hey  {mention} ✨️
+
+📂 **File** : <code>{title}</code>
+
+💽 **Size** : <code>{size}</code>
+
+<code>⚠️ This file will be deleted in 5 minutes. Due to copyright! ⚠️<code>"""
+
