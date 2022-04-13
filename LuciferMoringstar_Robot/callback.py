@@ -207,7 +207,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             try:
                 if FORCES_SUB and not await is_subscribed(client, query):
                   #  await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
-                    return
+                   # return
                 else:       
                     rd=await client.send_cached_media(
                         chat_id=CHANNEL_ID,
@@ -225,10 +225,10 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
-                await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
+               # await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
             except Exception as e:
                 print(e)
-                await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
+              #  await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
 
 # ---------- 📁 [ | 𝗣𝗠 𝗙𝗜𝗟𝗘𝗦 | ] 📁 ---------- #
 
