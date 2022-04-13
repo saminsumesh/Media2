@@ -9,3 +9,4 @@ pyromod
 requests
 aiofiles
 dnspython
+sqlalchemy
