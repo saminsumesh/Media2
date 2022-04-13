@@ -37,7 +37,7 @@ async def batch(client: LuciferMoringstar_Robot, message: Message):
     await second_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
 
 
-@LuciferMoringstar_Robot.on_message(filters.private & filters.user(ADMINS) & filters.command('genlink'))
+@LuciferMoringstar_Robot.on_message(filters.private & filters.command('genlink'))
 async def link_generator(client: LuciferMoringstar_Robot, message: Message):
     while True:
         try:
