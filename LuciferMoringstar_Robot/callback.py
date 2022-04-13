@@ -221,7 +221,11 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                              InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close")
                            ]]
                     reply_markup=InlineKeyboardMarkup(humm)
-                    await message.reply_text("Huy tezt", reply_markup=reply_markup)
+                    await message.reply_text(text=f"""📂 **File**: {title}\n\n💽 **Size**={size} Due to copyright this file will be deleted from here within 5 minutes
+So forward it to anywhere before downloading!
+
+കോപ്പിറൈറ്റ് ഉള്ളതുകൊണ്ട് ഈ ഫയൽ 5 മിനിറ്റിനുള്ളിൽ ഇവിടെനിന്നും ഡിലീറ്റ് ആകുന്നതാണ്
+അതുകൊണ്ട് ഇവിടെ നിന്നും മറ്റെവിടെക്കെങ്കിലും മാറ്റിയതിന് ശേഷം ഡൗൺലോഡ് ചെയ്യുക!""", reply_markup=reply_markup)
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
