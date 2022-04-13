@@ -37,10 +37,7 @@ class LuciferMoringstar(object):
     GET_MOVIE_1 = """
 🎬 **Title** : [{title}]({url})
 🎭 **Genre** : {genres}
-
-⌛️ **Duration** : {runtime}
 📆 **Release** : {year}
-🎙️ **Language** : {languages}
 
 📕 **Short Info** : {short}
 """
