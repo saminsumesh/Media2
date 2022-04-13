@@ -206,7 +206,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             caption=CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, title=title, size=size, caption=files.caption)
             try:
                 if FORCES_SUB and not await is_subscribed(client, query):
-                    await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
+                  #  await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
                     return
                 else:       
                     rd=await client.send_cached_media(
@@ -214,7 +214,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                         file_id=file_id,
                         caption=caption
                         )
-                    message = query.reply_to_message
+                    message = query.message.reply_to_message
                     humm = [[
                              InlineKeyboardButton("🚀 GET FILE 🚀", url=f"{rd.link}")
                            ],[
