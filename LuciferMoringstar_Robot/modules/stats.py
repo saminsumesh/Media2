@@ -23,12 +23,3 @@ async def get_ststs(bot, message):
                                            InlineKeyboardButton("♻️ Refresh", callback_data="rfrsh")]])
     )
 
-@Client.on_message(filters.command("id") & filters.group)
-async def id_user(bot, message):
-    id = message.from_user.id
-    reply = message.reply_to_message
-    chat = message.chat
-    if chat not in message:
-        await message.reply_text(f"Your Telegram ID: {id}")
-    else:
-        await message.reply_text(f"Chat ID: {chat}")
