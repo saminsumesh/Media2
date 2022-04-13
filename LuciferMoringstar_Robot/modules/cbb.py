@@ -4,10 +4,10 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import FloodWait
 
 
-from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
-from helper_func import encode
+from config import CHANNEL_ID, DISABLE_CHANNEL_BUTTON
+from function import encode
 
-@Client.on_message(filters.private & filters.user(ADMINS) & ~filters.command(['batch','genlink']))
+@Client.on_message(filters.private & ~filters.command(['batch','genlink']))
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("Please Wait...!", quote = True)
     try:
