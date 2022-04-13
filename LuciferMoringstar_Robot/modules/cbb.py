@@ -8,7 +8,7 @@ from main import LuciferMoringstar
 from config import CHANNEL_ID
 
 
-@LuciferMoringstar.on_message(filters.private & ~filters.command(['start','batch']))
+@LuciferMoringstar.on_message(filters.private & ~filters.command(['link']))
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("Подождите...!", quote = True)
     try:
@@ -28,7 +28,7 @@ async def channel_post(client: Client, message: Message):
     await reply_text.edit(f"<b>Ссылка на загрузку</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview = True)
 
 
-@LuciferMoringstar.on_message(filters.private & filters.command('batch'))
+@LuciferMoringstar.on_message(filters.private & filters.command('link'))
 async def batch(client: Client, message: Message):
     while True:
         try:
