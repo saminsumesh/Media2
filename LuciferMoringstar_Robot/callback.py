@@ -227,6 +227,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             except PeerIdInvalid:
                 await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
             except Exception as e:
+                print(e)
                 await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
 
 # ---------- 📁 [ | 𝗣𝗠 𝗙𝗜𝗟𝗘𝗦 | ] 📁 ---------- #
