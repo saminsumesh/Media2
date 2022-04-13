@@ -204,7 +204,6 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             title = files.file_name
             size=get_size(files.file_size)
             caption=CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, title=title, size=size, caption=files.caption)
-
             try:
                 if FORCES_SUB and not await is_subscribed(client, query):
                     await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
@@ -222,9 +221,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                              InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close")
                            ]]
                     reply_markup=InlineKeyboardMarkup(humm)
-                    yok = await message.reply_text(text=LuciferMoringstar.CP_DELETE.format(title= '' if title is None else title, size='' if size is None else size, caption='' if files.caption is None else files.caption), reply_markup=reply_markup)
-                    await asyncio.sleep(1000)
-                    await yok.edit("Your Query Have Been Deleted")
+                    await message.reply_text(text=LuciferMoringstar.CP_DELETE.format(title= '' if title is None else title, size='' if size is None else size, caption='' if files.caption is None else files.caption), reply_markup=reply_markup)
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
