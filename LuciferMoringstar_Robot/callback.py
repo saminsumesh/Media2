@@ -207,7 +207,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             try:
                 if FORCES_SUB and not await is_subscribed(client, query):
                   #  await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
-                   # return
+                    return
                 else:       
                     rd=await client.send_cached_media(
                         chat_id=CHANNEL_ID,
