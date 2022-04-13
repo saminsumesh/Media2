@@ -214,14 +214,14 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                         file_id=file_id,
                         caption=caption
                         )
-                    message = query.message.reply_to_message
+                    message = query.reply_to_message
                     humm = [[
                              InlineKeyboardButton("🚀 GET FILE 🚀", url=f"{rd.link}")
                            ],[
                              InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close")
                            ]]
                     reply_markup=InlineKeyboardMarkup(humm)
-                    await query.reply(text=LuciferMoringstar.CP_DELETE.format(mention= query.message.from_user.menntion, title= '' if title is None else title, size='' if size is None else size, caption='' if files.caption is None else files.caption), reply_markup=reply_markup)
+                    await message.reply_text(text=LuciferMoringstar.CP_DELETE.format(mention= query.message.from_user.mention, title= '' if title is None else title, size='' if size is None else size, caption='' if files.caption is None else files.caption), reply_markup=reply_markup)
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
