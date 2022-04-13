@@ -204,12 +204,8 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             title = files.file_name
             size=get_size(files.file_size)
             caption=CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, title=title, size=size, caption=files.caption)
-            try:
-                if FORCES_SUB and not await is_subscribed(client, query):
-                    await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
-                    return
-                else:
-                    rd=await client.send_cached_media(
+            try:         
+                if rd=await client.send_cached_media(
                         chat_id=CHANNEL_ID,
                         file_id=file_id,
                         caption=caption
