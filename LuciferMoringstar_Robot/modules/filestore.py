@@ -1,10 +1,10 @@
-from pyrogram import filters
+from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram import Client as LuciferMoringstar_Robot
+from main import LuciferMoringstar
 from function import encode, get_message_id
 
-@LuciferMoringstar_Robot.on_message(filters.private & filters.command('batch'))
-async def batch(client: LuciferMoringstar_Robot, message: Message):
+@LuciferMoringstar.on_message(filters.private & filters.command('batch'))
+async def batch(client: client, message: Message):
     while True:
         try:
             first_message = await client.ask(text = "Forward the First Message from DB Channel (with Quotes)..\n\nor Send the DB Channel Post Link", chat_id = message.from_user.id, filters=(filters.forwarded | (filters.text & ~filters.forwarded)), timeout=60)
@@ -37,8 +37,8 @@ async def batch(client: LuciferMoringstar_Robot, message: Message):
     await second_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
 
 
-@LuciferMoringstar_Robot.on_message(filters.private & filters.command('genlink'))
-async def link_generator(client: LuciferMoringstar_Robot, message: Message):
+@LuciferMoringstar.on_message(filters.private & filters.command('genlink'))
+async def link_generator(client: Client, message: Message):
     while True:
         try:
             channel_message = await client.ask(text = "Forward Message from the DB Channel (with Quotes)..\nor Send the DB Channel Post link", chat_id = message.from_user.id, filters=(filters.forwarded | (filters.text & ~filters.forwarded)), timeout=60)
