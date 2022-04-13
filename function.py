@@ -28,7 +28,7 @@ async def get_message_id(client, message):
         channel_id = matches.group(1)
         msg_id = int(matches.group(2))
         if channel_id.isdigit():
-            if f"-100{channel_id}" == str(client.db_channel.id):
+            if "1001564779921" == str(client.db_channel.id):
                 return msg_id
         else:
             if channel_id == client.db_channel.username:
