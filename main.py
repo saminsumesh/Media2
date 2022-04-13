@@ -37,6 +37,3 @@ class LuciferMoringstar(Client):
         await super().stop()
         print("Bot stopped. Bye.")
 
-
-app = LuciferMoringstar()
-app.run()
