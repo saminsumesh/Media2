@@ -23,10 +23,12 @@ async def get_ststs(bot, message):
                                            InlineKeyboardButton("♻️ Refresh", callback_data="rfrsh")]])
     )
 
-@Client.on_message(filters.command("id"))
-async def id_find(bot, message):
-    message_reply = reply_to_message.id
+@Client.on_message(filters.command("id") & filters.group)
+async def id_user(bot, message):
     id = message.from_user.id
-    chat_id = message.chat.id
-    await message.reply_text(f"Your ID: `{id}`", reply_to_message=reply_to_message.id)
-   # if message is ["Supergroup"]
+    reply = message.reply_to_message
+    chat = message.chat
+    if chat not in message:
+        await message.reply_text(f"Your Telegram ID: {id}")
+    else:
+        await message.reply_text(f"Chat ID: {chat}")
