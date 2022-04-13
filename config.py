@@ -54,4 +54,7 @@ class bot_info(object):
     BOT_USERNAME = None
     BOT_ID = None
 
-
+if environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True':
+    DISABLE_CHANNEL_BUTTON = True
+else:
+    DISABLE_CHANNEL_BUTTON = False
