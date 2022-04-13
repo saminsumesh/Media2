@@ -26,18 +26,18 @@ async def start_message(bot, message):
              ]]
         await message.reply_photo(photo = choice(BOT_PICS), caption=START_MSG.format(mention = message.from_user.mention, bot_name = bot_info.BOT_NAME, bot_username = bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons))
         
-    elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
-        invite_link = await bot.create_chat_invite_link(int(FORCES_SUB))
-        button=[[
-         InlineKeyboardButton("🔔 SUBSCRIBE 🔔", url=invite_link.invite_link)
-         ]]
-        reply_markup = InlineKeyboardMarkup(button)
-        await message.reply_photo(
-            photo=choice(BOT_PICS),
-            caption=f"""<i><b>Hello {message.from_user.mention}. \nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> To <a href="{invite_link.invite_link}">My Update Channel</a>.So you do not get the Files on Inline Mode, Bot Pm and Group</i></b>""",
-            reply_markup=reply_markup
-        )
-        return
+   # elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
+       # invite_link = await bot.create_chat_invite_link(int(FORCES_SUB))
+       # button=[[
+       #  InlineKeyboardButton("🔔 SUBSCRIBE 🔔", url=invite_link.invite_link)
+        # ]]
+       # reply_markup = InlineKeyboardMarkup(button)
+       # await message.reply_photo(
+        #    photo=choice(BOT_PICS),
+     #       caption=f"""<i><b>Hello {message.from_user.mention}. \nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> To <a href="{invite_link.invite_link}">My Update Channel</a>.So you do not get the Files on Inline Mode, Bot Pm and Group</i></b>""",
+       #     reply_markup=reply_markup
+      #  )
+    #    return
    
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["help"]))
 async def help(bot, message):
