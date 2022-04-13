@@ -12,7 +12,7 @@ from LuciferMoringstar_Robot.database._utils import get_size, is_subscribed
 from LuciferMoringstar_Robot.database._utils import lucifer_temp
 
 from translation import LuciferMoringstar
-from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, START_MSG, DEV_NAME, bot_info, ADMINS, team_name, team_link
+from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, START_MSG, DEV_NAME, bot_info, ADMINS, team_name, team_link, CHANNEL_ID
 
 from LuciferMoringstar_Robot.modules._text_ import module
 
@@ -210,12 +210,17 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                     await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
                     return
                 else:
-                    await client.send_cached_media(
-                        chat_id=query.from_user.id,
+                    rd=await client.send_cached_media(
+                        chat_id=CHANNEL_ID,
                         file_id=file_id,
                         caption=caption
                         )
-                    await query.answer('🤖 I have Sent Files In Pm 🤖',show_alert = True)
+                    message = query.message.reply_to_message
+                    humm = [[InlineKeyboardButton("🚀 GET FILE 🚀", url=f"{rd.link}")],[InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close")]])
+                    reply_markup=InlineKeyboardMarkup(humm)
+                    yok = await message.reply_text(text=LuciferMoringstar.CP_DELETE.format(title= '' if title is None else title, size='' if size is None else size, caption='' if files.caption is None else files.caption), reply_markup=reply_markup)
+                    await asyncio.sleep(1000)
+                    await yok.edit("Your Query Have Been Deleted")
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
