@@ -218,7 +218,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                     humm = [[
                              InlineKeyboardButton("🚀 GET FILE 🚀", url=f"{rd.link}")
                            ],[
-                             InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close")
+                             InlineKeyboardButton("❔Can't access❔ Join Here", url="https://t.me/+bJsFWnO4AOFiZTc1")
                            ]]
                     reply_markup=InlineKeyboardMarkup(humm)
                     await message.reply_text(text=f"📂 **File**: {title}\n\n💽 **Size**: {size}", reply_markup=reply_markup)
