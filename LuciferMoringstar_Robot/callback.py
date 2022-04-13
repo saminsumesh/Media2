@@ -221,7 +221,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                              InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close")
                            ]]
                     reply_markup=InlineKeyboardMarkup(humm)
-                    await message.reply_text(text=f"📂 **File**: {title}\n\n💽 **Size**={size} ", reply_markup=reply_markup)
+                    await message.reply_text(text=f"📂 **File**: {title}\n\n💽 **Size**: {size}", reply_markup=reply_markup)
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
