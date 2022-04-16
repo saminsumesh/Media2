@@ -206,22 +206,15 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             caption=CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, title=title, size=size, caption=files.caption)
             try:
                 if FORCES_SUB and not await is_subscribed(client, query):
-                  #  await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
+                    await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
                     return
                 else:       
-                    rd=await client.send_cached_media(
-                        chat_id=CHANNEL_ID,
+                     await client.send_cached_media(
+                        chat_id=query.from_user.id,
                         file_id=file_id,
                         caption=caption
                         )
-                    message = query.message.reply_to_message
-                    humm = [[
-                             InlineKeyboardButton("🚀 GET FILE 🚀", url=f"{rd.link}")
-                           ],[
-                             InlineKeyboardButton("❔Can't access❔ Join Here", url="https://t.me/+bJsFWnO4AOFiZTc1")
-                           ]]
-                    reply_markup=InlineKeyboardMarkup(humm)
-                    await message.reply_text(text=f"📂 **File**: {title}\n\n💽 **Size**: {size}", reply_markup=reply_markup)
+                     await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start") 
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
