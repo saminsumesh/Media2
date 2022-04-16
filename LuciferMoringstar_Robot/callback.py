@@ -208,13 +208,14 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                 if FORCES_SUB and not await is_subscribed(client, query):
                     await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
                     return
-                else:       
-                     await client.send_cached_media(
+                else:
+                    await client.send_cached_media(
                         chat_id=query.from_user.id,
                         file_id=file_id,
                         caption=caption
+                        
                         )
-                     await query.answer("Check I've sent to you pm", show_alert=True) 
+                    await query.answer('Check PM, I have Sent Files In Pm 🤖',show_alert = True)
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
