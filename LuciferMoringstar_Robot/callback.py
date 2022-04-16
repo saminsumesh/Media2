@@ -214,7 +214,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                         file_id=file_id,
                         caption=caption
                         )
-                     await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start={file_id}") 
+                     await query.answer("Check I've sent to you pm", show_alert=True) 
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
