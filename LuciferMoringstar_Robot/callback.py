@@ -209,7 +209,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                     await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
                     return
                 else:       
-                    await client.send_cached_media(
+                     await client.send_cached_media(
                         chat_id=query.from_user.id,
                         file_id=file_id,
                         caption=caption
