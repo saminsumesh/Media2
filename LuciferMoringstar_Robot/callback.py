@@ -18,6 +18,8 @@ from LuciferMoringstar_Robot.modules._text_ import module
 
 lock = asyncio.Lock()
 
+TUTORIAL = "https://t.me/+LspdavBERxFhMjU1"
+
 @lucifermoringstar_robot.on_callback_query()
 async def cb_handler(client: lucifermoringstar_robot, query):
     clicked = query.from_user.id
@@ -209,20 +211,25 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                     await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
                     return
                 else:
-                    await client.send_cached_media(
-                        chat_id=query.from_user.id,
+                   dd=await client.send_cached_media(
+                        chat_id=SENT_CHANNEL,
                         file_id=file_id,
                         caption=caption
-                        
-                        )
-                    await query.answer('Check PM, I have Sent Files In Pm 🤖',show_alert = True)
+                   )
+                   btn = [[
+                   	InlineKeyboardButton("🗂️GET LINK ", url=f"{dd.link}"),
+                   	InlineKeyboardButton("ACCESS CHANNEL", url=f"{TUTORIAL}")
+                   	]]
+                        await message.reply(
+                        	text=f"🎬 Filename: {file}\n\n💽 Size: {size}",
+                        	reply_markup=InlineKeyboardMarkup(btn)
+                        	)
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
                 await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
             except Exception as e:              
                 await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
-
 # ---------- 📁 [ | 𝗣𝗠 𝗙𝗜𝗟𝗘𝗦 | ] 📁 ---------- #
 
         elif query.data.startswith("pmfile"):
