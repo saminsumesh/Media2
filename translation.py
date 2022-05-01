@@ -20,7 +20,7 @@ class LuciferMoringstar(object):
 
     FILE_CAPTIONS = """Hey {mention}\n\n📁 Filename: {title}\n\n💽 Size: {size}"""
 
-.    GET_MOVIE_1 = """
+    GET_MOVIE_1 = """
 🎬 **Title** : [{title}]({url})
 🎭 **Genre** : {genres}
 📆 **Release** : {year}
