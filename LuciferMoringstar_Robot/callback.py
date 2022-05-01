@@ -12,7 +12,7 @@ from LuciferMoringstar_Robot.database._utils import get_size, is_subscribed
 from LuciferMoringstar_Robot.database._utils import lucifer_temp
 
 from translation import LuciferMoringstar
-from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, START_MSG, DEV_NAME, bot_info, ADMINS, team_name, team_link, CHANNEL_ID
+from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, START_MSG, DEV_NAME, bot_info, ADMINS, team_name, team_link
 
 from LuciferMoringstar_Robot.modules._text_ import module
 
