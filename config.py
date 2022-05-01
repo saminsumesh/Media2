@@ -17,7 +17,6 @@ B_KEYS = environ["BOT_TOKEN"]
 BOT_PICS = (environ.get('BOT_PICS', 'https://telegra.ph/file/8d4e4693a8a907cb51797.jpg')).split()
 SUPPORT = environ.get("SUPPORT", "t.me/ZacSupport")
 SPELL_MODE = is_enabled((environ.get('SPELL_MODE', "on")), True)
-SET_SPEL_M = environ.get("SPELL_MODE_TEXT", LuciferMoringstar.SPELL_CHECK)
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", -1001664350806))
 DATABASE_URI = environ.get("DATABASE_URI", None)
 FORCE = environ.get('FORCES_SUB')
