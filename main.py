@@ -15,7 +15,7 @@ class LuciferMoringstar(Client):
 
     def __init__(self):
         super().__init__(
-            "LuciferMoringstar_Robot",
+            "Gokufilterbpt",
             api_id=API_ID,
             api_hash=API_HASH,
             bot_token=B_KEYS,
