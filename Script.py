@@ -1,4 +1,4 @@
-class script(object):
+class LuciferMoringstar(object):
 
     START_TXT = """Hey {mention} 🔥, I'm [{bot_name}](t.me/{bot_username}), Just add me to your groups and make me as admin to get some exclusive features!!"""
 
