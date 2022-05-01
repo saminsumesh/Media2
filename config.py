@@ -13,15 +13,15 @@ def is_enabled(value, default):
 # ==================================
 API_ID = int(environ["API_ID"])
 API_HASH = environ["API_HASH"]
-B_KEYS = environ["B_KEY"]
+B_KEYS = environ["BOT_TOKEN"]
 BOT_PICS = (environ.get('BOT_PICS', 'https://telegra.ph/file/8d4e4693a8a907cb51797.jpg')).split()
 SUPPORT = environ.get("SUPPORT", "t.me/ZacSupport")
 SPELL_MODE = is_enabled((environ.get('SPELL_MODE', "on")), True)
-SET_SPEL_M = environ.get("SPELL_MODE_TEXT", script.SPELL_CHECK)
+SET_SPEL_M = environ.get("SPELL_MODE_TEXT", LuciferMoringstar.SPELL_CHECK)
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", -1001664350806))
 DATABASE_URI = environ.get("DATABASE_URI", None)
 FORCE = environ.get('FORCES_SUB')
-CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", script.FILE_CAPTIONS)
+CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", LuciferMoringstar.FILE_CAPTIONS)
 DEV_NAME = environ.get("DEV_NAME", "zacBots")
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ['ADMINS'].split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ['CHANNELS'].split()]
@@ -39,7 +39,7 @@ BUTTONS = {}
 CURRENT = int(environ.get("SKIP", 2))
 CANCEL = False
 FORCES_SUB = int(FORCE) if FORCE and id_pattern.search(FORCE) else FORCE
-DATABASE_NAME = environ.get("DATABASE_NAME", 'LuciferMoringstar_Robot')
+DATABASE_NAME = environ.get("DATABASE_NAME", 'GokuFiles')
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 # ==================================
 
