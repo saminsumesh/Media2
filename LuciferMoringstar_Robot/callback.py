@@ -215,7 +215,8 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                         chat_id=SENT_CHANNEL,
                         file_id=file_id,
                         caption=caption
-                await query.answer("I've sent the file to your PM') 
+                   )
+                   await query.answer("I've sent the file to your PM') 
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
