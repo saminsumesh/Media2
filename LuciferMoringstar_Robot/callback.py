@@ -12,7 +12,7 @@ from LuciferMoringstar_Robot.database._utils import get_size, is_subscribed
 from LuciferMoringstar_Robot.database._utils import lucifer_temp
 
 from translation import LuciferMoringstar
-from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, DEV_NAME, bot_info, ADMINS, team_name, team_link
+from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, DEV_NAME, bot_info, ADMINS, team_name, team_link, bot_time
 
 from LuciferMoringstar_Robot.modules._text_ import module
 
@@ -21,7 +21,7 @@ lock = asyncio.Lock()
 TUTORIAL = "https://t.me/+LspdavBERxFhMjU1"
 
 @lucifermoringstar_robot.on_callback_query()
-async def cb_handler(client: lucifermoringstar_robot, query, *args):
+async def cb_handler(client: lucifermoringstar_robot, query):
     clicked = query.from_user.id
     try:
         typed = query.message.reply_to_message.from_user.id
@@ -269,7 +269,7 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
                 ],[
                 InlineKeyboardButton('Close', callback_data="close")
                 ]]               
-            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, uptime=bot_time, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, uptime=bot_time.uptime, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "help":
             buttons = [[
