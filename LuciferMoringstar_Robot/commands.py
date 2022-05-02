@@ -56,7 +56,7 @@ async def help(bot, message):
         InlineKeyboardButton("Info", callback_data="pin"),
         ],[
         InlineKeyboardButton("Json", callback_data="ban"),
-        InlineKeyboardButton("Warn", callback_data="mute"),
+        InlineKeyboardButton("Warn", callback_data="mute")
         ],[
         InlineKeyboardButton("« Back", callback_data="start"),
         InlineKeyboardButton("Status", callback_data="stats")
@@ -69,7 +69,7 @@ async def help(bot, message):
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["about"]))
 async def about(bot, message):
     button = [[
-             InlineKeyboardButton("Status", callback_data="stats")
+             InlineKeyboardButton("Status", callback_data="stats"),
              InlineKeyboardButton("« Back", callback_data="start")
              ]]               
     await message.reply_photo(
