@@ -304,7 +304,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
 
         elif query.data == "warn":
             buttons = [[ InlineKeyboardButton('« Back', callback_data="help") ]]          
-            await query.message.edit(module.mute_text.format(team=team_name, team_link=team_link), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(module.warn_text.format(team=team_name, team_link=team_link), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "json":
             buttons = [[ InlineKeyboardButton('« Back', callback_data="help") ]]          
