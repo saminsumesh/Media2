@@ -1,6 +1,6 @@
 import asyncio 
 
-from pyrogram import Client as lucifermoringstar_robot
+from pyrogram import Client as lucifermoringstar_robot, __version__
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserIsBlocked, PeerIdInvalid
 
@@ -269,7 +269,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                 ],[
                 InlineKeyboardButton('Close', callback_data="close")
                 ]]               
-            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "help":
             buttons = [[
