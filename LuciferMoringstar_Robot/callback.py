@@ -21,7 +21,7 @@ lock = asyncio.Lock()
 TUTORIAL = "https://t.me/+LspdavBERxFhMjU1"
 
 @lucifermoringstar_robot.on_callback_query()
-async def cb_handler(client: lucifermoringstar_robot, query):
+async def cb_handler(client: lucifermoringstar_robot, query, *args):
     clicked = query.from_user.id
     try:
         typed = query.message.reply_to_message.from_user.id
