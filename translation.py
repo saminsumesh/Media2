@@ -1,7 +1,7 @@
 class LuciferMoringstar(object):
 
     START_TXT = """**Heya Human {mention},
-[{bot_name}](https://t.me/{bot_username} is **the most complete** Bot Made for AutoFiltering Movies + Managing Your Groups **easily and safely**
+[Zerina](https://t.me/Zac_Autofilterbot) is **the most complete** Bot Made for AutoFiltering Movies + Managing Your Groups **easily and safely**
 
 👉🏼 Add me to your **Supergroup** or **Group** and Promote me as an **Admin** to let me get in **Action**
 
