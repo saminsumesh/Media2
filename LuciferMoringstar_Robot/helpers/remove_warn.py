@@ -2,7 +2,7 @@ import json
 
 from pyrogram.types import CallbackQuery
 
-from Config import WARN_DATA_ID
+from config import WARN_DATA_ID
 from pyrogram import Client, filters
 
 async def remove_warn(client: Client, c_q: CallbackQuery, user_id: str, warner: int):
