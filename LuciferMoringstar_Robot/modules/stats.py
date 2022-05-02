@@ -8,8 +8,8 @@ from translation import LuciferMoringstar
 
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
-    nun=await message.reply_text("Connecting to MongoDB")
-    await asyncio.sleep(2)
+    nun=await message.reply_text("Fetching..")
+    await asyncio.sleep(1)
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
     files = await Media.count_documents()
