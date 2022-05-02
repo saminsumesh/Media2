@@ -11,7 +11,6 @@ from LuciferMoringstar_Robot.admins.index_files import index_files_to_db
 from LuciferMoringstar_Robot.database.autofilter_db import get_file_details, get_poster
 from LuciferMoringstar_Robot.database._utils import get_size, is_subscribed
 from LuciferMoringstar_Robot.database._utils import lucifer_temp
-from LuciferMoringstar_Robot.helpers.remove_warn import remove_warn
 from translation import LuciferMoringstar
 from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, DEV_NAME, bot_info, ADMINS, team_name, team_link
 
@@ -202,10 +201,7 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
 
 # ---------- 📁 [ | 𝗚𝗘𝗧 𝗙𝗜𝗟𝗘𝗦 | ] 📁 ---------- #
 
-        elif query.data.startswith("rmwarn_"):
-            _c, first_i, second_i = cb_data.split("_")
-            await remove_warn(client, callback_query, str(first_i), int(second_i))
-            
+   
         elif query.data.startswith("lucifermoringstar_robot"):
             ident, file_id = query.data.split("#")
             files_ = await get_file_details(file_id)
