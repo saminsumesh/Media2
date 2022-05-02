@@ -1,7 +1,7 @@
 from pyrogram import __version__
 class LuciferMoringstar(object):
 
-    START_TXT = f"""**Heya Human {},
+    START_TXT = """**Heya Human {},
 
 **I'm an pre-functioned AutoFilter + Group Management Bot. Fully written in pyrogram Library.**
 
