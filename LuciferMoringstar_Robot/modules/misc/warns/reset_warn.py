@@ -2,7 +2,7 @@ import json
 from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram import Client, filters
-from LuciferMoringstar_Robot.helpers.cust_p_filters import admin_fliter
+from LuciferMoringstar_Robot.helpers.custom import admin_fliter
 from config import WARN_DATA_ID
 
 @Client.on_message(filters.command(["resetwarn"]) & admin_fliter)
