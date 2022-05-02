@@ -51,8 +51,6 @@ team_link = os.environ.get('team_link', 't.me/XD_Botz')
 # ==================================
 # About Bot 🤖
 # ===============≠===================
-class bot_time(object):
-    uptime = UP_TIME - BOT_START_TIME
 
 if environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True':
     DISABLE_CHANNEL_BUTTON = True
