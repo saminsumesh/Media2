@@ -1,4 +1,3 @@
-from pyrogram import __version__
 class LuciferMoringstar(object):
 
     START_TXT = """**Heya Human {},
