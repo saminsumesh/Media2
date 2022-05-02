@@ -32,7 +32,6 @@ TIME_DURATION_UNITS = (
 
 @lucifermoringstar_robot.on_callback_query()
 async def cb_handler(client: lucifermoringstar_robot, query, *args):
-    cb_data = callback_query.data
     clicked = query.from_user.id
     try:
         typed = query.message.reply_to_message.from_user.id
