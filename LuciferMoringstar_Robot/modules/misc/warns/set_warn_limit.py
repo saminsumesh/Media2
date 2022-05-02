@@ -1,7 +1,7 @@
 import json
 from pyrogram import filters
 from pyrogram.types import Message
-from Config import WARN_SETTINGS_ID
+from config import WARN_SETTINGS_ID
 from LuciferMoringstar_Robot.helpers.cust_p_filters import admin_filter
 
 
