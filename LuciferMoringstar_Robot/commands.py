@@ -1,5 +1,5 @@
 from random import choice
-from config import FORCES_SUB, BOT_PICS, ADMINS, bot_info, DEV_NAME, bot_time
+from config import FORCES_SUB, BOT_PICS, ADMINS, bot_info, DEV_NAME
 from pyrogram import Client as LuciferMoringstar_Robot, filters as Worker, __version__
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from translation import LuciferMoringstar
@@ -34,7 +34,7 @@ async def start_message(bot, message):
              ],[
              InlineKeyboardButton('Close', callback_data="close")
              ]]
-        await message.reply_text(text=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, uptime = bot_time.uptime, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
+        await message.reply_text(text=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
         invite_link = await bot.create_chat_invite_link(int(FORCE_SUB))
