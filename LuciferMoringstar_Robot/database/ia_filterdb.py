@@ -12,6 +12,13 @@ from config import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME, USE_CAPTION_FIL
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+TIME_DURATION_UNITS = (
+    ('week', 60 * 60 * 24 * 7),
+    ('day', 60 * 60 * 24),
+    ('hour', 60 * 60),
+    ('min', 60),
+    ('sec', 1)
+)
 
 client = AsyncIOMotorClient(DATABASE_URI)
 db = client[DATABASE_NAME]
