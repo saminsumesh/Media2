@@ -14,12 +14,12 @@ def is_enabled(value, default):
 API_ID = int(environ["API_ID"])
 API_HASH = environ["API_HASH"]
 B_KEYS = environ["BOT_TOKEN"]
-BOT_PICS = (environ.get('BOT_PICS', 'https://telegra.ph/file/8d4e4693a8a907cb51797.jpg')).split()
+BOT_PICS = (environ.get('PICS', 'https://telegra.ph/file/8d4e4693a8a907cb51797.jpg')).split()
 SUPPORT = environ.get("SUPPORT", "t.me/ZacSupport")
 SPELL_MODE = is_enabled((environ.get('SPELL_MODE', "on")), True)
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", -1001664350806))
 DATABASE_URI = environ.get("DATABASE_URI", None)
-FORCE = environ.get('FORCES_SUB')
+FORCE = environ.get('AUTH_CHANNEL')
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", LuciferMoringstar.FILE_CAPTIONS)
 DEV_NAME = environ.get("DEV_NAME", "zacBots")
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ['ADMINS'].split()]
