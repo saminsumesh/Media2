@@ -1,10 +1,10 @@
 from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram import Client, filters
-# from pyrobot.helper_functions.cust_p_filters import admin_fliter
+from pyrobot.helpers.cust_p_filters import admin_fliter
 
 
-# @Client.on_message(filters.command(["warns"]) & admin_fliter)
+@Client.on_message(filters.command(["warns"]) & admin_fliter)
 async def check_warns_of_user(client: Client, msg: Message):
     replied = msg.reply_to_message
     if not replied:
