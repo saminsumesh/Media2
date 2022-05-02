@@ -6,7 +6,7 @@ from pyrogram.errors import UserIsBlocked, PeerIdInvalid
 from time import time
 from datetime import datetime
 from LuciferMoringstar_Robot.database.users_chats_db import db
-from LuciferMoringstar_Robot.database.ia_filterdb import Media
+from LuciferMoringstar_Robot.database.ia_filterdb import Media, _human_time_duration
 from LuciferMoringstar_Robot.admins.index_files import index_files_to_db
 from LuciferMoringstar_Robot.database.autofilter_db import get_file_details, get_poster
 from LuciferMoringstar_Robot.database._utils import get_size, is_subscribed
