@@ -20,7 +20,7 @@ Some People Need To Be Publicly Banned: Spammers, Annkyances, Or Just Trolls...!
 This module helps you to make any text, image. To a json format.
 
 ⇝ <u>Command</u>
-• /json - Mute a User
+• /json - To jsonify something
 """
     pin_message = """
 ⇝ <u>Info</u>
