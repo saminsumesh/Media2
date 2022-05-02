@@ -1,6 +1,6 @@
 from pyrogram import Client as LuciferMoringstar_Robot, filters as Worker
 from LuciferMoringstar_Robot.modules.autofilter import group_filters, pm_autofilter
-from config import AUTH_GROUPS, AUTH_USERS, UP_TIME, BOT_START_TIME
+from config import AUTH_GROUPS, AUTH_USERS
 from LuciferMoringstar_Robot.database.users_chats_db import db
 
 
@@ -16,5 +16,3 @@ async def pm_filters(client, message):
     await pm_autofilter(client, message)
 
 
-class bot_time(object):
-    uptime = UP_TIME - BOT_START_TIME
