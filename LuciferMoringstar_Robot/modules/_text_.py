@@ -4,15 +4,23 @@ class module(object):
 
 Auto Filter is the feature to filter and save all the files automatically from channel to group. This mostly used in group to get movies with name
 """
-    ban_text = """
-⇝ <u>Ban</u> :-
+    warn_text = """
+⇝ <u>Warns</u>
 
-Some People Need To Be Publicly Banned: Spammers, Annkyances, Or Just Trolls...! This Module Allows You To Do That Easily By Exposing Same Commo Actions, So EveryOne Will See!
+<b>You can warn user if they are commiting certain actions that are against your group rules.</b>
 
-⇝ <u>Command</u> :-
+<b>COMMANDS & USAGE:</b>
+• /warns username: Get a user's warn count and reason of warns.
 
-★ /ban - Ban a User
-★ /unban - Unban A User
+<b>Admins only:</b>
+• /warn username: To warn a user. After 3 warns, the bot will take action as your settings. Can also be used as a reply.
+• /dwarn username: Warn a user by reply, and delete their message.
+• /swarn username: Silently warn a user, and delete your message.
+• /rmwarn username: Remove a user's latest warning.
+• /resetwarn username: Reset the warns for a user. Can also be used as a reply.
+• /warnsettings: Get the chat's warning settings.
+• /warnmode ban/kick/mute: Set the chat's warn mode.
+• /warnlimit number: Set the number of warnings before users are punished.
 """
     mute_text = """
 ⇝ <u>Jsonify</u> :-
