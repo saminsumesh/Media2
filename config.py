@@ -1,3 +1,4 @@
+import time
 import re, os
 from os import environ
 from translation import LuciferMoringstar
@@ -53,7 +54,7 @@ class bot_info(object):
     BOT_USERNAME = None
     BOT_ID = None
 
-class bot_time(object)
+class bot_time(object):
     uptime = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time() - BOT_START_TIME))
 
 if environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True':
