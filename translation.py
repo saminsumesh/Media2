@@ -1,22 +1,18 @@
 class LuciferMoringstar(object):
 
     START_TXT = """**Heya Human {mention},
+[{bot_name}](https://t.me/{bot_username} is **the most complete** Bot Made for AutoFiltering Movies + Managing Your Groups **easily and safely**
 
-**I'm an pre-functioned AutoFilter + Group Management Bot. Fully written in pyrogram Library.**
+👉🏼 Add me to your **Supergroup** or **Group** and Promote me as an **Admin** to let me get in **Action**
 
-**Current Pyrogram Version :** {version}
+**Current Version :** v{version}
 **Uptime :** {uptime}
 
-Join my updates channel if you want get up-to-date information about this bot.
-If any bugs found Report it to : @ZacSupport
-
-For Bot Help Use The **Help** Button Below or Hit /help.
+📃 **[Privacy & Policy](https://t.me/zacBots/24)**
 """
-    HELP_MSG = """**This is the help section:
-/start - Check if I'm not Dead
-/help - How to use me 
-/about - Know about me
-**"""
+    HELP_MSG = """**These are the Command list**
+- 
+"""
 
     ABOUT_MSG = """
 • Name [{bot_name}](t.me/{bot_username})
