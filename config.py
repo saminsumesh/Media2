@@ -27,9 +27,8 @@ ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ['CHANNELS'].split()]
 AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
-
-
-
+WARN_DATA_ID = int(environ.get("WARN_DATA_ID", "0"))
+WARN_SETTINGS_ID = int(os.environ.get("WARN_SETTINGS_ID", "0"))
 # ==================================
 # Empty 😂
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
