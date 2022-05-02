@@ -49,8 +49,10 @@ async def start_message(bot, message):
         current_time = datetime.utcnow()
         uptime_sec = (current_time - START_TIME).total_seconds()
         uptime = _human_time_duration(int(uptime_sec))
-        await message.reply_text(text=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, uptime = uptime, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
-        
+        duh=await message.reply_text("Kone Thu ?")
+        await message.reply_text(text=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, uptime = uptime, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+        await asyncio.sleep(1)
+        await duh.delete()
     elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
         invite_link = await bot.create_chat_invite_link(int(FORCE_SUB))
         button=[[
