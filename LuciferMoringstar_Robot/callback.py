@@ -300,17 +300,6 @@ async def cb_handler(client: lucifermoringstar_robot, query):
         elif query.data == "close":
             await query.message.delete()
 
-        elif query.data == "bot_owner":
-            buttons = [[
-             InlineKeyboardButton('Home', callback_data="start"),
-             InlineKeyboardButton('About', callback_data="about")
-             ],[
-             InlineKeyboardButton('« Back', callback_data="             InlineKeyboardButton('About', callback_data="about")
-")
-             ]]               
-            await query.message.edit(text=LuciferMoringstar.PR0FESS0R_99.format(mention=query.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-
-
         elif query.data == "autofilter":
             buttons = [[ InlineKeyboardButton('« Back', callback_data="help") ]]          
             await query.message.edit(module.autofilter_text.format(team=team_name, team_link=team_link), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -318,9 +307,11 @@ async def cb_handler(client: lucifermoringstar_robot, query):
         elif query.data == "ban":
             buttons = [[ InlineKeyboardButton('« Back', callback_data="help") ]]          
             await query.message.edit(module.ban_text.format(team=team_name, team_link=team_link), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
         elif query.data == "mute":
             buttons = [[ InlineKeyboardButton('« Back', callback_data="help") ]]          
             await query.message.edit(module.mute_text.format(team=team_name, team_link=team_link), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+
         elif query.data == "mute":
             buttons = [[ InlineKeyboardButton('« Back', callback_data="help") ]]          
             await query.message.edit(module.mute_text.format(team=team_name, team_link=team_link), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
