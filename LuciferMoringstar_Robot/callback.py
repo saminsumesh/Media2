@@ -12,7 +12,7 @@ from LuciferMoringstar_Robot.database._utils import get_size, is_subscribed
 from LuciferMoringstar_Robot.database._utils import lucifer_temp
 
 from translation import LuciferMoringstar
-from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, START_MSG, DEV_NAME, bot_info, ADMINS, team_name, team_link
+from config import BUTTONS, FORCES_SUB, CUSTOM_FILE_CAPTION, DEV_NAME, bot_info, ADMINS, team_name, team_link
 
 from LuciferMoringstar_Robot.modules._text_ import module
 
@@ -265,7 +265,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                  InlineKeyboardButton("Help", callback_data="help"),
                  InlineKeyboardButton("About", callback_data="about") 
                  ]]               
-            await query.message.edit(text=START_MSG.format(mention=query.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "help":
             buttons = [[
