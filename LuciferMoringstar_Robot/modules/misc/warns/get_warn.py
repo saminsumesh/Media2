@@ -1,7 +1,7 @@
 from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram import Client, filters
-from pyrobot.helpers.cust_p_filters import admin_fliter
+from LuciferMoringstar_Robot.helpers.cust_p_filters import admin_fliter
 
 
 @Client.on_message(filters.command(["warns"]) & admin_fliter)
