@@ -53,9 +53,6 @@ async def group_filters(client, message):
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages"),
                  InlineKeyboardButton("Close 🗑️", callback_data="close")]
             )
-            buttons.append(
-                [InlineKeyboardButton(text="Check PM", url=f"https://telegram.dog/{bot_info.BOT_USERNAME}")]
-            )
 
             imdb=await get_poster(search)
             if imdb and imdb.get('poster'):
