@@ -21,7 +21,7 @@ lock = asyncio.Lock()
 TUTORIAL = "https://t.me/+LspdavBERxFhMjU1"
 
 @lucifermoringstar_robot.on_callback_query()
-async def cb_handler(client: lucifermoringstar_robot, query):
+async def cb_handler(client: lucifermoringstar_robot, query, *args):
     clicked = query.from_user.id
     try:
         typed = query.message.reply_to_message.from_user.id
@@ -269,7 +269,7 @@ async def cb_handler(client: lucifermoringstar_robot, query):
                 ],[
                 InlineKeyboardButton('Close', callback_data="close")
                 ]]               
-            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, uptime=bot_time, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "help":
             buttons = [[
