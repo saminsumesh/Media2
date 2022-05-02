@@ -54,7 +54,7 @@ class bot_info(object):
     BOT_NAME = None
     BOT_USERNAME = None
     BOT_ID = None
-
+# ===============≠===================
 class bot_time(object):
     uptime = UP_TIME - BOT_START_TIME
 
