@@ -3,8 +3,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram import Client, filters
 # from LuciferMoringstar_Robot.helpers.cust_p_filters import admin_fliter
-
-WARN_DATA_ID = int(os.environ.get("WARN_DATA_ID", "0"))
+from Config import WARN_DATA_ID
 
 # @Client.on_message(filters.command(["resetwarn"]) & admin_fliter)
 async def reset_all_warns(client: Client, msg: Message):
