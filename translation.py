@@ -1,7 +1,18 @@
+from pyrogram import __version__
 class LuciferMoringstar(object):
 
-    START_TXT = """Hey {mention} 🔥, I'm [{bot_name}](t.me/{bot_username}), Just add me to your groups and make me as admin to get some exclusive features!!"""
+    START_TXT = f"""**Heya Human {},
 
+**I'm an pre-functioned AutoFilter + Group Management Bot. Fully written in pyrogram Library.**
+
+**Current Pyrogram Version :** {__version__}
+**Uptime :** {uptime}
+
+Join my updates channel if you want get up-to-date information about this bot.
+If any bugs found Report it to : @ZacSupport
+
+For Bot Help Use The **Help** Button Below or Hit /help.
+"""
     HELP_MSG = """**This is the help section:
 /start - Check if I'm not Dead
 /help - How to use me 
