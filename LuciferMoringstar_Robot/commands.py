@@ -6,7 +6,7 @@ from translation import LuciferMoringstar
 from LuciferMoringstar_Robot.database.users_chats_db import db
 
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["start"]))
-async def start_message(bot, message, *args):
+async def start_message(bot, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id)
     if len(message.command) != 2:
@@ -34,7 +34,7 @@ async def start_message(bot, message, *args):
              ],[
              InlineKeyboardButton('Close', callback_data="close")
              ]]
-        await message.reply_photo(photo = choice(BOT_PICS), caption=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
+        await message.reply_photo(photo = choice(BOT_PICS), caption=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, uptime = bot_time, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
         invite_link = await bot.create_chat_invite_link(int(FORCE_SUB))
