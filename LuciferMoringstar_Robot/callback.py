@@ -252,29 +252,29 @@ async def cb_handler(client: lucifermoringstar_robot, query):
 
         elif query.data == "start":
             if query.from_user.id not in ADMINS: 
-            buttons = [[
-             InlineKeyboardButton("Add me to your group", url=f"http://t.me/{bot_info.BOT_USERNAME}?startgroup=true")
-             ],[
-             InlineKeyboardButton("Updates", url="https://t.me/ZacBots"),
-             InlineKeyboardButton("Support", url="https://t.me/ZacSupport"),
-             ],[
-             InlineKeyboardButton("Help", callback_data="help"),
-             InlineKeyboardButton("About", callback_data="about") 
-             ],[
-             InlineKeyboardButton('Close', callback_data="close")
-             ]]
+                buttons = [[
+                InlineKeyboardButton("Add me to your group", url=f"http://t.me/{bot_info.BOT_USERNAME}?startgroup=true")
+                ],[
+                InlineKeyboardButton("Updates", url="https://t.me/ZacBots"),
+                InlineKeyboardButton("Support", url="https://t.me/ZacSupport"),
+                ],[
+                InlineKeyboardButton("Help", callback_data="help"),
+                InlineKeyboardButton("About", callback_data="about") 
+                ],[
+                InlineKeyboardButton('Close', callback_data="close")
+                ]]
             else:
-            buttons = [[
-             InlineKeyboardButton("Add me to your group", url=f"http://t.me/{bot_info.BOT_USERNAME}?startgroup=true")
-             ],[
-             InlineKeyboardButton("Updates", url="https://t.me/ZacBots"),
-             InlineKeyboardButton("Support", url="https://t.me/ZacSupport"),
-             ],[
-             InlineKeyboardButton("Help", callback_data="help"),
-             InlineKeyboardButton("About", callback_data="about") 
-             ],[
-             InlineKeyboardButton('Close', callback_data="close")
-             ]]               
+                buttons = [[
+                InlineKeyboardButton("Add me to your group", url=f"http://t.me/{bot_info.BOT_USERNAME}?startgroup=true")
+                ],[
+                InlineKeyboardButton("Updates", url="https://t.me/ZacBots"),
+                InlineKeyboardButton("Support", url="https://t.me/ZacSupport"),
+                ],[
+                InlineKeyboardButton("Help", callback_data="help"),
+                InlineKeyboardButton("About", callback_data="about") 
+                ],[
+                InlineKeyboardButton('Close', callback_data="close")
+                ]]               
             await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "help":
