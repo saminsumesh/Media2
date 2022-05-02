@@ -6,7 +6,7 @@ from pyrogram import Client as LuciferMoringstar_Robot, filters as Worker, __ver
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from translation import LuciferMoringstar
 from LuciferMoringstar_Robot.database.users_chats_db import db
-
+from LuciferMoringstar_Robot.database.ia_filterdb import _human_time_duration
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
