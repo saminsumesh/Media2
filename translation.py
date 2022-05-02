@@ -1,6 +1,6 @@
 class LuciferMoringstar(object):
 
-    START_TXT = """**Heya Human {},
+    START_TXT = """**Heya Human {mention},
 
 **I'm an pre-functioned AutoFilter + Group Management Bot. Fully written in pyrogram Library.**
 
