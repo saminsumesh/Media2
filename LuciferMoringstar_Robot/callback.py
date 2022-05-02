@@ -206,23 +206,25 @@ async def cb_handler(client: lucifermoringstar_robot, query):
             title = files.file_name
             size=get_size(files.file_size)
             caption=CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, title=title, size=size, caption=files.caption)
+
             try:
-                if FORCE_SUB and not await is_subscribed(client, query):
-                    await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe") 
+                if FORCES_SUB and not await is_subscribed(client, query):
+                    await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
                     return
                 else:
-                   await client.send_cached_media(
-                        chat_id=SENT_CHANNEL,
+                    await client.send_cached_media(
+                        chat_id=query.from_user.id,
                         file_id=file_id,
                         caption=caption
-                   )
-                   await query.answer("I've sent the file to your PM', show_alert=True) 
+                        )
+                    await query.answer('Check PM, I have Sent Files In Pm',show_alert = True)
             except UserIsBlocked:
                 await query.answer('Unblock the bot mahn !',show_alert = True)
             except PeerIdInvalid:
                 await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
-            except Exception as e:              
+            except Exception as e:
                 await query.answer(url=f"https://t.me/{bot_info.BOT_USERNAME}?start=subscribe")
+
 # ---------- 📁 [ | 𝗣𝗠 𝗙𝗜𝗟𝗘𝗦 | ] 📁 ---------- #
 
         elif query.data.startswith("pmfile"):
