@@ -3,7 +3,8 @@ import asyncio
 from pyrogram import Client as lucifermoringstar_robot, __version__
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserIsBlocked, PeerIdInvalid
-
+from time import time
+from datetime import datetime
 from LuciferMoringstar_Robot.database.users_chats_db import db
 from LuciferMoringstar_Robot.database.ia_filterdb import Media
 from LuciferMoringstar_Robot.admins.index_files import index_files_to_db
@@ -19,6 +20,16 @@ from LuciferMoringstar_Robot.modules._text_ import module
 lock = asyncio.Lock()
 
 TUTORIAL = "https://t.me/+LspdavBERxFhMjU1"
+
+START_TIME = datetime.utcnow()
+START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
+TIME_DURATION_UNITS = (
+    ('week', 60 * 60 * 24 * 7),
+    ('day', 60 * 60 * 24),
+    ('hour', 60 * 60),
+    ('min', 60),
+    ('sec', 1)
+)
 
 @lucifermoringstar_robot.on_callback_query()
 async def cb_handler(client: lucifermoringstar_robot, query, *args):
@@ -268,8 +279,11 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
                 InlineKeyboardButton("About", callback_data="about") 
                 ],[
                 InlineKeyboardButton('Close', callback_data="close")
-                ]]               
-            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, uptime=bot_time.uptime, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+                ]]
+            current_time = datetime.utcnow()
+            uptime_sec = (current_time - START_TIME).total_seconds()
+            uptime = _human_time_duration(int(uptime_sec))   
+            await query.message.edit(text=LuciferMoringstar.START_TXT.format(mention=query.from_user.mention, uptime=uptime, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
 
         elif query.data == "help":
             buttons = [[
