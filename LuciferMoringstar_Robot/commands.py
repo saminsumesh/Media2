@@ -6,7 +6,7 @@ from translation import LuciferMoringstar
 from LuciferMoringstar_Robot.database.users_chats_db import db
 
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["start"]))
-async def start_message(bot, message):
+async def start_message(bot, message, *args):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id)
     if len(message.command) != 2:
