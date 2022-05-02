@@ -19,6 +19,8 @@ async def start_message(bot, message):
              ],[
              InlineKeyboardButton("Help", callback_data="help"),
              InlineKeyboardButton("About", callback_data="about") 
+             ],[
+             InlineKeyboardButton('Close', callback_data="close")
              ]]
         else:
             buttons = [[
@@ -29,6 +31,8 @@ async def start_message(bot, message):
              ],[
              InlineKeyboardButton("Help", callback_data="help"),
              InlineKeyboardButton("About", callback_data="about") 
+             ],[
+             InlineKeyboardButton('Close', callback_data="close")
              ]]
         await message.reply_photo(photo = choice(BOT_PICS), caption=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, bot_name = bot_info.BOT_NAME, bot_username = bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons))
         
@@ -48,14 +52,14 @@ async def start_message(bot, message):
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["help"]))
 async def help(bot, message):
     button = [[
-        InlineKeyboardButton("Autofilter", callback_data="autofilter"),
-        InlineKeyboardButton("Pin", callback_data="pin"),
+        InlineKeyboardButton("Filter", callback_data="autofilter"),
+        InlineKeyboardButton("Info", callback_data="pin"),
         ],[
-        InlineKeyboardButton("Ban", callback_data="ban"),
-        InlineKeyboardButton("Mute", callback_data="mute"),
+        InlineKeyboardButton("Json", callback_data="ban"),
+        InlineKeyboardButton("Warn", callback_data="mute"),
         ],[
-        InlineKeyboardButton("Status", callback_data="stats"),
-        InlineKeyboardButton("« Back", callback_data="start")
+        InlineKeyboardButton("« Back", callback_data="start"),
+        InlineKeyboardButton("Status", callback_data="stats")
         ]]
     await message.reply_photo(
         photo = choice(BOT_PICS),
@@ -65,9 +69,8 @@ async def help(bot, message):
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["about"]))
 async def about(bot, message):
     button = [[
-             InlineKeyboardButton("sᴏᴜʀᴄᴇ", url="https://t.me/ippotharam34"),
-             InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url="https://t.me/zacbots"),
-             InlineKeyboardButton("« ʙᴀᴄᴋ", callback_data="start")
+             InlineKeyboardButton("Status", callback_data="stats")
+             InlineKeyboardButton("« Back", callback_data="start")
              ]]               
     await message.reply_photo(
         photo = choice(BOT_PICS),
