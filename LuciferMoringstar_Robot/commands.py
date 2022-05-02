@@ -34,7 +34,7 @@ async def start_message(bot, message):
              ],[
              InlineKeyboardButton('Close', callback_data="close")
              ]]
-        await message.reply_photo(photo = choice(BOT_PICS), caption=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, uptime = bot_time, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
+        await message.reply_text(text=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, uptime = bot_time, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
         invite_link = await bot.create_chat_invite_link(int(FORCE_SUB))
@@ -42,9 +42,8 @@ async def start_message(bot, message):
          InlineKeyboardButton("ᴊᴏɪɴ ᴛᴏ ᴜsᴇ ᴍᴇ", url=invite_link.invite_link)
          ]]
         reply_markup = InlineKeyboardMarkup(button)
-        await message.reply_photo(
-            photo=choice(BOT_PICS),
-            caption=f"""<i><b>Hello {message.from_user.mention}. \nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> To <a href="{invite_link.invite_link}">My Update Channel</a>.So you do not get the Files on Inline Mode, Bot Pm and Group</i></b>""",
+        await message.reply_text(
+            text=f"""<i><b>Hello {message.from_user.mention}. \nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> To <a href="{invite_link.invite_link}">My Update Channel</a>.So you do not get the Files on Inline Mode, Bot Pm and Group</i></b>""",
             reply_markup=reply_markup
         )
         return
@@ -61,9 +60,8 @@ async def help(bot, message):
         InlineKeyboardButton("« Back", callback_data="start"),
         InlineKeyboardButton("Status", callback_data="stats")
         ]]
-    await message.reply_photo(
-        photo = choice(BOT_PICS),
-        caption=LuciferMoringstar.HELP_MSG.format(mention=message.from_user.mention),
+    await message.reply_text(
+        text=LuciferMoringstar.HELP_MSG.format(mention=message.from_user.mention),
         reply_markup=InlineKeyboardMarkup(button))
       
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["about"]))
@@ -72,8 +70,7 @@ async def about(bot, message):
              InlineKeyboardButton("Status", callback_data="stats"),
              InlineKeyboardButton("« Back", callback_data="start")
              ]]               
-    await message.reply_photo(
-        photo = choice(BOT_PICS),
-        caption=LuciferMoringstar.ABOUT_MSG.format(mention=message.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME, dev_name=DEV_NAME),
+    await message.reply_text(
+        text=LuciferMoringstar.ABOUT_MSG.format(mention=message.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME, dev_name=DEV_NAME),
         reply_markup=InlineKeyboardMarkup(button))
         
