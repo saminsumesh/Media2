@@ -30,16 +30,16 @@ async def start_message(bot, message):
              InlineKeyboardButton("Help", callback_data="help"),
              InlineKeyboardButton("About", callback_data="about") 
              ]]
-        await message.reply_photo(photo = choice(PICS), caption=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, bot_name = bot_info.BOT_NAME, bot_username = bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons))
+        await message.reply_photo(photo = choice(BOT_PICS), caption=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, bot_name = bot_info.BOT_NAME, bot_username = bot_info.BOT_USERNAME), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
-        invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
+        invite_link = await bot.create_chat_invite_link(int(FORCE_SUB))
         button=[[
          InlineKeyboardButton("ᴊᴏɪɴ ᴛᴏ ᴜsᴇ ᴍᴇ", url=invite_link.invite_link)
          ]]
         reply_markup = InlineKeyboardMarkup(button)
         await message.reply_photo(
-            photo=choice(PICS),
+            photo=choice(BOT_PICS),
             caption=f"""<i><b>Hello {message.from_user.mention}. \nYou Have <a href="{invite_link.invite_link}">Not Subscribed</a> To <a href="{invite_link.invite_link}">My Update Channel</a>.So you do not get the Files on Inline Mode, Bot Pm and Group</i></b>""",
             reply_markup=reply_markup
         )
@@ -58,7 +58,7 @@ async def help(bot, message):
         InlineKeyboardButton("« Back", callback_data="start")
         ]]
     await message.reply_photo(
-        photo = choice(PICS),
+        photo = choice(BOT_PICS),
         caption=LuciferMoringstar.HELP_MSG.format(mention=message.from_user.mention),
         reply_markup=InlineKeyboardMarkup(button))
       
@@ -70,7 +70,7 @@ async def about(bot, message):
              InlineKeyboardButton("« ʙᴀᴄᴋ", callback_data="start")
              ]]               
     await message.reply_photo(
-        photo = choice(PICS),
+        photo = choice(BOT_PICS),
         caption=LuciferMoringstar.ABOUT_MSG.format(mention=message.from_user.mention, bot_name=bot_info.BOT_NAME, bot_username=bot_info.BOT_USERNAME, dev_name=DEV_NAME),
         reply_markup=InlineKeyboardMarkup(button))
         
