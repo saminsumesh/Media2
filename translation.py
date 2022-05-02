@@ -4,7 +4,7 @@ class LuciferMoringstar(object):
 
 **I'm an pre-functioned AutoFilter + Group Management Bot. Fully written in pyrogram Library.**
 
-**Current Pyrogram Version :** {__version__}
+**Current Pyrogram Version :** {version}
 **Uptime :** {uptime}
 
 Join my updates channel if you want get up-to-date information about this bot.
