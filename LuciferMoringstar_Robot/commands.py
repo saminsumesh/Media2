@@ -1,9 +1,21 @@
+from time import time
+from datetime import datetime
 from random import choice
 from config import FORCES_SUB, BOT_PICS, ADMINS, bot_info, DEV_NAME
 from pyrogram import Client as LuciferMoringstar_Robot, filters as Worker, __version__
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from translation import LuciferMoringstar
 from LuciferMoringstar_Robot.database.users_chats_db import db
+
+START_TIME = datetime.utcnow()
+START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
+TIME_DURATION_UNITS = (
+    ('week', 60 * 60 * 24 * 7),
+    ('day', 60 * 60 * 24),
+    ('hour', 60 * 60),
+    ('min', 60),
+    ('sec', 1)
+)
 
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["start"]))
 async def start_message(bot, message):
@@ -34,7 +46,10 @@ async def start_message(bot, message):
              ],[
              InlineKeyboardButton('Close', callback_data="close")
              ]]
-        await message.reply_text(text=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
+        current_time = datetime.utcnow()
+        uptime_sec = (current_time - START_TIME).total_seconds()
+        uptime = _human_time_duration(int(uptime_sec))
+        await message.reply_text(text=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, uptime = uptime, version = __version__), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
         invite_link = await bot.create_chat_invite_link(int(FORCE_SUB))
