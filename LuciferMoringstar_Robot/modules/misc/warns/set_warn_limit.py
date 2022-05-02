@@ -2,7 +2,7 @@ import json
 from pyrogram import filters
 from pyrogram.types import Message
 from config import WARN_SETTINGS_ID
-from LuciferMoringstar_Robot.helpers.cust_p_filters import admin_filter
+from LuciferMoringstar_Robot.helpers.cust_p_filters.admin_filter_f import admin_filter
 
 
 @Client.on_message(filters.command(["warnlimit", "setwarn"]) & admin_filter)
