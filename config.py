@@ -41,8 +41,6 @@ CANCEL = False
 FORCES_SUB = int(FORCE) if FORCE and id_pattern.search(FORCE) else FORCE
 DATABASE_NAME = environ.get("DATABASE_NAME", 'GokuFiles')
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-BOT_START_TIME = time.time()
-UP_TIME = time.strftime("%Hh %Mm %Ss", time.gmtime(time.time())
 # ==================================
 
 team_name = os.environ.get('team_name', 'XD Botz')
