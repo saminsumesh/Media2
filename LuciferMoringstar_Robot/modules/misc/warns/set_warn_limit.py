@@ -2,12 +2,10 @@ import json
 from pyrogram import filters
 from pyrogram.types import Message
 from Config import WARN_SETTINGS_ID
-#from LuciferMoringstar_Robot.helpers.cust_p_filters import sudo_filter
+from LuciferMoringstar_Robot.helpers.cust_p_filters import admin_filter
 
 
-#@Client.on_message(
-#    filters.command(["warnlimit", "setwarn"]) & sudo_filter
-#)
+@Client.on_message(filters.command(["warnlimit", "setwarn"]) & admin_filter)
 async def set_warn_mode_and_limit(client: Client, msg: Message):
     if len(msg.command) <= 1:
         await msg.reply("Input not found!")
