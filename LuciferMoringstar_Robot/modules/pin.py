@@ -9,13 +9,11 @@ async def bot_pin(bot: Client, message: Message):
   if chat_type == "supergroup":
     if reply:
       user = await bot.get_chat_member(message.chat.id, message.from_user.id)
-      if user.status == (("adminstrator") or ("owner")):
-        await bot.pin_chat_message()
-        cc=await message.reply("Successfully pinned.")
-        await asyncio.sleep(5)
-        await cc.delete()
+      if user.status != (("adminstrator") or ("owner")):
+        await message.reply_text("Poda Poi admin avh")
       else:
-        await message.reply_text("Sorry You're not an Admin of this chat.")
+        await bot.pin()
+        print("sussess")
     else:
       await message.reply_text("Please reply to a message or any file so that i could pin it.")
   else:
