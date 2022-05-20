@@ -8,7 +8,7 @@ async def bot_pin(bot: Client, message: Message):
   if member.can_pin_messages:
     if message.reply_to_message:
       await message.reply_to_message.pin()
-   else:
+    else:
       await message.reply("Reply to a message to pin")
   else:
     await message.reply("You don't have permission to do this")
