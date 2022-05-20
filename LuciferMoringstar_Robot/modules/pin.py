@@ -15,10 +15,10 @@ async def bot_pin(bot: Client, message: Message):
         await asyncio.sleep(5)
         await cc.delete()
       else:
-        await message.reply_text("Sorry You're not an Admin of this chat.")
+        await message.reply_text(f"Seems like you don't have enough rights in {message.chat.title}")
     else:
-      await message.reply_text("Please reply to a message or any file so that i could pin it.")
+      await message.reply_text("Please reply to a message")
   else:
-   return await message.reply_text("OkDa")
+   return await reply.pin()
      
   
