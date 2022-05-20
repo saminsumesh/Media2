@@ -10,7 +10,7 @@ async def bot_pin(bot: Client, message: Message):
     if reply:
       user = await bot.get_chat_member(message.chat.id, message.from_user.id)
       if user.can_pin_message:
-        await bot.reply.pin()
+        await reply.pin()
         cc=await message.reply_text("Successfully Pinned ✨")
         await asyncio.sleep(5)
         await cc.delete()
