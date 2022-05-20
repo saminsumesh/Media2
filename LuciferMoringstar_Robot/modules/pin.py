@@ -11,9 +11,9 @@ async def bot_pin(bot: Client, message: Message):
       user = await bot.get_member(message.chat.id, message.from_user.id)
       if user.status == (("adminstrator") or ("creator")):
         await bot.reply.pin()
+        cc=await message.reply("Successfully pinned.")
         await asyncio.sleep(5)
         await cc.delete()
-        cc=await message.reply("Successfully pinned.")
       else:
         await message.reply_text("Sorry You're not an Admin of this chat.")
     else:
