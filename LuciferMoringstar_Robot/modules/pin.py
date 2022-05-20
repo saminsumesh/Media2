@@ -12,7 +12,7 @@ async def bot_pin(bot: Client, message: Message):
       if user.status != (("adminstrator") or ("owner")):
         await message.reply_text("Poda Poi admin avh")
       else:
-        await bot.pin()
+        await bot.pin_chat_message(message.chat.id, message_id)
         print("sussess")
     else:
       await message.reply_text("Please reply to a message or any file so that i could pin it.")
