@@ -4,8 +4,6 @@ from pyrogram.types import (Message)
 
 @Client.on_message(filters.command("pin"))
 async def bot_pin(bot: Client, message: Message):
-  cmd = ["/pin"]
-  await cmd.delete()
   user = await bot.get_chat_member(message.chat.id, message.from_user.id)
   if user.can_pin_messages:
     if message.reply_to_message:
