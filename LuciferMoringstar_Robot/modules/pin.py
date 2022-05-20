@@ -8,7 +8,7 @@ async def bot_pin(bot: Client, message: Message):
   reply = message.reply_to_message
   if chat_type == "supergroup":
     if reply:
-      user = await bot.get_member(message.chat.id, message.from_user.id)
+      user = await bot.get_chat_member(message.chat.id, message.from_user.id)
       if user.status == (("adminstrator") or ("creator")):
         await bot.reply.pin()
         cc=await message.reply("Successfully pinned.")
