@@ -12,9 +12,9 @@ async def bot_pin(bot: Client, message: Message):
         user = await bot.get_chat_member(message.chat.id, message.from_user.id)
         if user.status != (("adminstrator") or ("owner")):
           await message.reply_text("Poda Poi admin avh")
-      except Exception as e:
         else:
           await bot.pin_chat_message(message.chat.id, message_id)
+      except Exception as e:
         print(e)
     else:
       await message.reply_text("Please reply to a message or any file so that i could pin it.")
