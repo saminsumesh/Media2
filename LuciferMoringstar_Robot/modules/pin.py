@@ -16,7 +16,7 @@ async def bot_pin(bot: Client, message: Message):
 
 
 @Client.on_message(filters.command("unpin"))
-async def bot_pin(bot: Client, message: Message):
+async def bot_unpin(bot: Client, message: Message):
   user = await bot.get_chat_member(message.chat.id, message.from_user.id)
   if user.can_pin_messages:
     if message.reply_to_message:
