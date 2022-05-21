@@ -287,9 +287,13 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
             buttons = [[
               InlineKeyboardButton("Filters", callback_data="autofilter"),
               InlineKeyboardButton("Info", callback_data="info"),
+              InlineKeyboardButton("Report", callback_data="report"),
+              InlineKeyboardButton("File Store", callback_data="filestore")
               ],[
               InlineKeyboardButton("Json", callback_data="json"),
+              InlineKeyboardButton("Torrent", callback_data="torrent_search"),
               InlineKeyboardButton("Warn", callback_data="warn"),
+              InlineKeyboardButton("Go Inline", switch_inline_query_current_chat='| ')
               ],[
               InlineKeyboardButton("« Back", callback_data="start"),
               InlineKeyboardButton("Status", callback_data="stats")
