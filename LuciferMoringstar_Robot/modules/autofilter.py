@@ -159,6 +159,6 @@ async def pm_autofilter(client, message):
         if imdb and imdb.get('poster'):
             await message.reply_photo(photo=imdb.get('poster'), caption=LuciferMoringstar.GET_MOVIE_1.format(mention=message.from_user.mention, query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), short=imdb.get('plot'), url=imdb['url']), reply_markup=InlineKeyboardMarkup(buttons))
         elif imdb:
-            await message.reply_photo(photo=random.choice(BOT_PICS), caption=LuciferMoringstar.GET_MOVIE_1.format(mention=message.from_user.mention, query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), short=imdb.get('plot'), url=imdb['url']), reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo="https://telegra.ph/file/41cf8373dc58aa7e9a535.jpg", caption=LuciferMoringstar.GET_MOVIE_1.format(mention=message.from_user.mention, query=search, title=imdb.get('title'), genres=imdb.get('genres'), year=imdb.get('year'), rating=imdb.get('rating'), short=imdb.get('plot'), url=imdb['url']), reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_photo(photo=random.choice(BOT_PICS), caption=LuciferMoringstar.GET_MOVIE_2.format(query=search, mention=message.from_user.mention, chat=bot_info.BOT_NAME), reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_sticker("CAACAgUAAxkBAAEBGPpiiKxk5UD9x7XMVvut4hrZ9yRYKwACWwADO0qzKWJZdSVC-jSFJAQ", caption=LuciferMoringstar.GET_MOVIE_2.format(query=search, mention=message.from_user.mention, chat=bot_info.BOT_NAME), reply_markup=InlineKeyboardMarkup(buttons))
