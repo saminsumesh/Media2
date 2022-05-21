@@ -50,10 +50,7 @@ async def start_message(bot, message):
         current_time = datetime.utcnow()
         uptime_sec = (current_time - START_TIME).total_seconds()
         uptime = _human_time_duration(int(uptime_sec))
-        duh=await message.reply_text("Kone Thu ?")
         await message.reply_text(text=LuciferMoringstar.START_TXT.format(mention = message.from_user.mention, uptime = uptime, version = __version__), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-        await asyncio.sleep(1)
-        await duh.delete()
     elif len(message.command) ==2 and message.command[1] in ["subscribe"]:
         invite_link = await bot.create_chat_invite_link(int(FORCE_SUB))
         button=[[
@@ -65,23 +62,7 @@ async def start_message(bot, message):
             reply_markup=reply_markup
         )
         return
-   
-@LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["help"]))
-async def help(bot, message):
-    button = [[
-        InlineKeyboardButton("Filter", callback_data="autofilter"),
-        InlineKeyboardButton("Info", callback_data="pin"),
-        ],[
-        InlineKeyboardButton("Json", callback_data="ban"),
-        InlineKeyboardButton("Warn", callback_data="mute")
-        ],[
-        InlineKeyboardButton("« Back", callback_data="start"),
-        InlineKeyboardButton("Status", callback_data="stats")
-        ]]
-    await message.reply_text(
-        text=LuciferMoringstar.HELP_MSG.format(mention=message.from_user.mention),
-        reply_markup=InlineKeyboardMarkup(button))
-      
+
 @LuciferMoringstar_Robot.on_message(Worker.private & Worker.command(["about"]))
 async def about(bot, message):
     button = [[
