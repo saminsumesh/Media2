@@ -11,8 +11,8 @@ class LuciferMoringstar(object):
 
 📃 **[Privacy & Policy](https://t.me/zacBots/24)**
 """
-    HELP_MSG = """**These are the Command list**
-- 
+    HELP_MSG = """
+Help menu of @GokuFilterBot an Powerful IMDb Search Bot with Extra powerfull nodules
 """
 
     ABOUT_MSG = """
@@ -42,7 +42,7 @@ class LuciferMoringstar(object):
 
 © **{chat}**"""
 
-    STATUS_TXT = """📈 Database Status of Sakura:
+    STATUS_TXT = """📈 Database Status of GokuFilterBot:
 
 🗃️ Total Files: <code>{}</code>
 
