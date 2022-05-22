@@ -18,7 +18,7 @@ async def group_filters(client, message):
         if files:
             btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
             )
-            btn.append([InlineKeyboardButton('✨ Files {data["total"]}', callback_data="nothing"),
+            btn.append([InlineKeyboardButton(f'✨ Files {data["total"]}', callback_data="nothing"),
                         InlineKeyboardButton("🎭 IMDb", callback_data="imdbcheck")]
             )
             for file in files:
@@ -32,7 +32,7 @@ async def group_filters(client, message):
             if SPELL_MODE:  
                 reply = search.replace(" ", "+")
                 reply_markup = InlineKeyboardMarkup([[
-                 InlineKeyboardButton("🔮IMDB🔮", callback_data="imdbcheck"),
+                 InlineKeyboardButton("🔮 IMDb", callback_data="imdbcheck"),
                  InlineKeyboardButton("🪐 Reason", callback_data="reason")
                  ]]
                 )    
@@ -43,8 +43,8 @@ async def group_filters(client, message):
         if not btn:
             return
 
-        if len(btn) > 10: 
-            btns = list(split_list(btn, 10)) 
+        if len(btn) > 6: 
+            btns = list(split_list(btn, 6)) 
             keyword = f"{message.chat.id}-{message.message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
@@ -122,8 +122,8 @@ async def pm_autofilter(client, message):
         if not btn:
             return
 
-        if len(btn) > 10: 
-            btns = list(split_list(btn, 10)) 
+        if len(btn) > 6: 
+            btns = list(split_list(btn, 6)) 
             keyword = f"{message.chat.id}-{message.message_id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
