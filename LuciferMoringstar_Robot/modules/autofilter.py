@@ -18,7 +18,7 @@ async def group_filters(client, message):
         if files:
             btn.append([InlineKeyboardButton(text=f"🔮 {search}", callback_data=f"{search}")]
             )
-            btn.append([InlineKeyboardButton(f'✨ Files {data["total"]}', callback_data="nothing"),
+            btn.append([InlineKeyboardButton(f'✨ {message.chat.title}', callback_data="nothing"),
                         InlineKeyboardButton("🎭 IMDb", callback_data="imdbcheck")]
             )
             for file in files:
