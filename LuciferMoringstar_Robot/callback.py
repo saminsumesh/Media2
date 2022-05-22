@@ -67,7 +67,7 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
                 buttons = data['buttons'][int(index)+1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("«ʙᴀᴄᴋ", callback_data=f"backgroup_{int(index)+1}_{keyword}"),InlineKeyboardButton("Next Page ➡", callback_data=f"nextgroup_{int(index)+1}_{keyword}")]
+                    [InlineKeyboardButton("«ʙᴀᴄᴋ", callback_data=f"backgroup_{int(index)+1}_{keyword}"),InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"nextgroup_{int(index)+1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"ᴘᴀɢᴇs {int(index)+2}/{data['total']}", callback_data="pages"),
@@ -104,7 +104,7 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
                 buttons = data['buttons'][int(index)-1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("«ʙᴀᴄᴋ", callback_data=f"backgroup_{int(index)-1}_{keyword}"),InlineKeyboardButton("Next Page ➡", callback_data=f"nextgroup_{int(index)-1}_{keyword}")]
+                    [InlineKeyboardButton("«ʙᴀᴄᴋ", callback_data=f"backgroup_{int(index)-1}_{keyword}"),InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"nextgroup_{int(index)-1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"ᴘᴀɢᴇs {int(index)}/{data['total']}", callback_data="pages"),
@@ -146,7 +146,7 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
                 buttons = data['buttons'][int(index)+1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("«ʙᴀᴄᴋ", callback_data=f"backbot_{int(index)+1}_{keyword}"),InlineKeyboardButton("Next Page ➡", callback_data=f"nextbot_{int(index)+1}_{keyword}")]
+                    [InlineKeyboardButton("«ʙᴀᴄᴋ", callback_data=f"backbot_{int(index)+1}_{keyword}"),InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"nextbot_{int(index)+1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"ᴘᴀɢᴇs {int(index)+2}/{data['total']}", callback_data="pages"),
@@ -185,7 +185,7 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
                 buttons = data['buttons'][int(index)-1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("«ʙᴀᴄᴋ", callback_data=f"backbot_{int(index)-1}_{keyword}"),InlineKeyboardButton("Next Page ➡", callback_data=f"nextbot_{int(index)-1}_{keyword}")]
+                    [InlineKeyboardButton("«ʙᴀᴄᴋ", callback_data=f"backbot_{int(index)-1}_{keyword}"),InlineKeyboardButton("ɴᴇxᴛ", callback_data=f"nextbot_{int(index)-1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"ᴘᴀɢᴇs {int(index)}/{data['total']}", callback_data="pages"),
