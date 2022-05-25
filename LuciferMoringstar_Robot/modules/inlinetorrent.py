@@ -5,8 +5,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 from LuciferMoringstar_Robot.tool import Searchx1337
 
 @Client.on_inline_query()
-async def botToreent(bot: Client,Inline: InlineQuery):
-    search_ts = Inline.query
+async def botToreent(_, inline: InlineQuery):
+    search_ts = inline.query
     answers = []
 
     if search_ts == "":
