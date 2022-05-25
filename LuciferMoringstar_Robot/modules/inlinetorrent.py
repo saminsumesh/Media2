@@ -56,9 +56,9 @@ async def botToreent(_, inline: InlineQuery):
             answers.append(
                 InlineQueryResultArticle(
                     title="Nothing found for your **SEARCH** on 1337x",
-                    description=f"Can't find anything regarding on your {query} in x1337",
+                    description=f"Can't find anything regarding on your {search_ts} in x1337",
                     input_message_content=InputTextMessageContent(
-                        message_text=f"Nothing found on {query} in 1337x",
+                        message_text=f"Nothing found on {search_ts} in 1337x",
                         parse_mode="md"
                     ),
                     reply_markup=InlineKeyboardMarkup(
