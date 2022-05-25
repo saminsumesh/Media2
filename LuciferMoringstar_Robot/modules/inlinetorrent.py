@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, InlineQuery, InlineQueryResult, InlineQueryResultArticle, InputTextMessageContent
-from LuciferMoringstar_Robot.helpers.Search1377x import Searchx1337
+from LuciferMoringstar_Robot.tool import Searchx1337
 
 @Client.on_inline_query()
 async def botToreent(bot: Client,Inline: InlineQuery):
