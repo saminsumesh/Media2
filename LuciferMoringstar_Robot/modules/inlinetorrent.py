@@ -49,7 +49,7 @@ async def botToreent(bot: Client,Inline: InlineQuery):
                 )
             )
     else:
-        torrentList = await Searchx1337(query)
+        torrentList = await Searchx1337(search_ts)
         if not torrentList:
             answers.append(
                 InlineQueryResultArticle(
