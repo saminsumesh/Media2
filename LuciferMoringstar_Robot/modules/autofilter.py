@@ -111,7 +111,7 @@ async def pm_autofilter(client, message):
                 )
         else:
             await message.reply_photo(
-                photo=random.choice(PICS),
+                photo=random.choice(BOT_PICS),
                 caption=LuciferMoringstar.ADD_YOUR_GROUP,
                 reply_markup=InlineKeyboardMarkup([[
                    InlineKeyboardButton("🔥 Updates", url="https://t.me/xd_botz")
