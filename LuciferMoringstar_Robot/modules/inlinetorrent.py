@@ -27,7 +27,26 @@ async def botToreent(_, inline: InlineQuery):
                             InlineKeyboardButton("Search Torrent", switch_inline_query_current_chat="!0 ")
                         ]
                     ]
-                )
+                ),
+                thumb_url="https://telegra.ph/file/6f9ac71d884b880c070e4.jpg"
+            )
+        )
+        answers.append(
+            InlineQueryResultArticle(
+                title="Updates",
+                description="Our Bots Updates",
+                input_message_content=InputTextMessageContent(
+                    message_text="**Join 🌟**\nhttps://t.me/zacBots",
+                    parse_mode="markdown"
+                ),
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton("Updates", url="https://t.me/zacBots"),
+                        ]
+                    ]
+                ),
+                thumb_url="https://telegra.ph/file/aa6575b9506872d6d376d.jpg"
             )
         )
     elif search_ts.startswith("!0"):
