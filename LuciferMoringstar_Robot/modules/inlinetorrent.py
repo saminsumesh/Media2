@@ -1,3 +1,5 @@
+import asyncio
+from pyrogram.errors import QueryIdInvalid
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, InlineQuery, InlineQueryResult, InlineQueryResultArticle, InputTextMessageContent
 from LuciferMoringstar_Robot.tool import Searchx1337
@@ -93,4 +95,23 @@ async def botToreent(bot: Client,Inline: InlineQuery):
                         thumb_url=torrentList[i]['Poster']
                     )
                 )
+        try:
+        await inline.answer(
+            results=answers,
+            cache_time=0
+        )
+        print(f"Answered Successfully - {inline.from_user.first_name}")
+    except QueryIdInvalid:
+        print(f"Failed to Answer - {inline.from_user.first_name} - Sleeping for 5s")
+        await asyncio.sleep(5)
+        try:
+            await inline.answer(
+                results=answers,
+                cache_time=0,
+                switch_pm_text="Error: Search timed out!",
+                switch_pm_parameter="start",
+            )
+        except QueryIdInvalid:
+            print(f"Failed to Answer Error - {inline.from_user.first_name} - Sleeping for 5s")
+            await asyncio.sleep(5)
 
