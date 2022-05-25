@@ -3,7 +3,7 @@ from email import message
 from posixpath import split
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, InlineQuery, InlineQueryResult, InlineQueryResultArticle, InputTextMessageContent
-#from LuciferMoringstar_Robot.helpers import torrentSEARCH
+#from LuciferMoringstar_Robot.helpers import Searchx1337
 
 @Client.on_inline_query()
 async def botToreent(bot: Client,Inline: InlineQuery):
@@ -25,27 +25,27 @@ async def botToreent(bot: Client,Inline: InlineQuery):
                             InlineKeyboardButton("Updates", url="https://t.me/zacBots"),
                         ],
                         [
-                            InlineKeyboardButton("Search Torrent", switch_inline_query_current_chat="| ")
+                            InlineKeyboardButton("Search Torrent", switch_inline_query_current_chat="!0 ")
                         ]
                     ]
                 )
             )
         )
-    elif search_ts.startwith("|"):
+    elif search_ts.startwith("!0"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
                 InlineQueryResultArticle(
-                    title="| Search for torrent on x1337",
-                    description="Search torrent in x1337",
+                    title="| Search for torrent on 1337x",
+                    description="Search torrent in 1337x",
                     input_message_content=InputTextMessageContent(
-                        message_text="| [text]\n Search x1337 on **TELEGRAM** inline",
+                        message_text="| [text]\n Search 1337x on **TELEGRAM** inline",
                         parse_mode="md"
                     ),
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("Search Again", switch_inline_query_current_chat="| ")
+                                InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!0 ")
                             ]
                         ]
                     )
@@ -56,16 +56,16 @@ async def botToreent(bot: Client,Inline: InlineQuery):
         if not torrentList:
             answers.append(
                 InlineQueryResultArticle(
-                    title="Nothing found for your **SEARCH** on x1337",
+                    title="Nothing found for your **SEARCH** on 1337x",
                     description=f"Can't find anything regarding on your {query} in x1337",
                     input_message_content=InputTextMessageContent(
-                        message_text=f"Nothing found on {query} in x1337",
+                        message_text=f"Nothing found on {query} in 1337x",
                         parse_mode="md"
                     ),
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [ 
-                                InlineKeyboardButton("Try again", switch_inline_query_current_chat="| ")
+                                InlineKeyboardButton("Try again", switch_inline_query_current_chat="!0 ")
                             ]
                         ]
                     )
@@ -89,7 +89,7 @@ async def botToreent(bot: Client,Inline: InlineQuery):
                         reply_markup=InlineKeyboardMarkup(
                             [
                                 [
-                                    InlineKeyboardButton("Search Again", switch_inline_query_current_chat="| ")
+                                    InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!0 ")
                                 ]
                             ]
                         ),
