@@ -28,7 +28,7 @@ async def botToreent(bot: Client,Inline: InlineQuery):
                 )
             )
         )
-    elif search_ts.startwith("!0"):
+    elif search_ts.startswith("!0"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
