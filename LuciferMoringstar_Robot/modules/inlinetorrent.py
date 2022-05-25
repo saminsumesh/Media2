@@ -95,7 +95,7 @@ async def botToreent(bot: Client,Inline: InlineQuery):
                         thumb_url=torrentList[i]['Poster']
                     )
                 )
-        try:
+    try:
         await inline.answer(
             results=answers,
             cache_time=0
