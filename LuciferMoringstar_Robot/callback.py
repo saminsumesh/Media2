@@ -290,7 +290,7 @@ async def cb_handler(client: lucifermoringstar_robot, query, *args):
               InlineKeyboardButton("File Store", callback_data="filestore")
               ],[
               InlineKeyboardButton("Json", callback_data="json"),
-              InlineKeyboardButton("Torrent", callback_data="torrent_search"),
+              InlineKeyboardButton("Torrent", switch_inline_query_current_chat='!0 '),
               InlineKeyboardButton("Warn", callback_data="warn"),
               InlineKeyboardButton("Go Inline", switch_inline_query_current_chat='| ')
               ],[
