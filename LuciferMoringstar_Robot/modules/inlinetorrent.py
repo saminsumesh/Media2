@@ -2,91 +2,227 @@ import asyncio
 from pyrogram.errors import QueryIdInvalid
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, InlineQuery, InlineQueryResult, InlineQueryResultArticle, InputTextMessageContent
-from LuciferMoringstar_Robot.tool import Searchx1337
+from LuciferMoringstar_Robot.tool import SearchYTS, SearchAnime, Search1337x, SearchPirateBay
+
+
+DEFAULT_SEARCH_MARKUP = [
+                    [InlineKeyboardButton("Search YTS", switch_inline_query_current_chat="!yts "),
+                     InlineKeyboardButton("Go Inline", switch_inline_query="!yts ")],
+                    [InlineKeyboardButton("Search ThePirateBay", switch_inline_query_current_chat="!pb "),
+                     InlineKeyboardButton("Go Inline", switch_inline_query="!pb ")],
+                    [InlineKeyboardButton("Search 1337x", switch_inline_query_current_chat=""),
+                     InlineKeyboardButton("Go Inline", switch_inline_query="")],
+                    [InlineKeyboardButton("Search Anime", switch_inline_query_current_chat="!a "),
+                     InlineKeyboardButton("GO Inline", switch_inline_query_current_chat="!a ")],
+                    [InlineKeyboardButton("Updates", url="https://t.me/ZacBots")]
+                ]
+
+
 
 @Client.on_inline_query()
-async def botToreent(_, inline: InlineQuery):
+async def inline_handlers(_, inline: InlineQuery):
     search_ts = inline.query
     answers = []
-
     if search_ts == "":
         answers.append(
             InlineQueryResultArticle(
-                title="Search something",
-                description="Search to find something",
+                title="Tᴇʟᴇɢʀᴀᴍ ᴄʜᴀɴɴᴇʟ",
                 input_message_content=InputTextMessageContent(
-                    message_text="**Join 🌟**\nhttps://t.me/zacBots",
-                    parse_mode="markdown"
+                    message_text="Join 🌟: __https://t.me/zacBots__",
+                    parse_mode="Markdown"
                 ),
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton("Updates", url="https://t.me/zacBots"),
-                        ],
-                        [
-                            InlineKeyboardButton("Search Torrent", switch_inline_query_current_chat="!0 ")
-                        ]
-                    ]
-                ),
-                thumb_url="https://telegra.ph/file/6f9ac71d884b880c070e4.jpg"
-            )
+                reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
+            ),
+            thumb_url="https://telegra.ph/file/8d5f51b7c3dba4a0cb36f.jpg"
         )
         answers.append(
             InlineQueryResultArticle(
-                title="Updates",
-                description="Our Bots Updates",
+                title="ᴍᴏᴠɪᴇs ᴄʜᴀᴛ ғʀᴏᴍ ᴜs!",
                 input_message_content=InputTextMessageContent(
-                    message_text="**Join 🌟**\nhttps://t.me/zacBots",
-                    parse_mode="markdown"
+                    message_text="Join: __https://t.me/+QSvACcGfJ5RkNWM1__",
+                    parse_mode="Markdown"
                 ),
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton("Updates", url="https://t.me/zacBots"),
-                        ]
-                    ]
-                ),
-                thumb_url="https://telegra.ph/file/aa6575b9506872d6d376d.jpg"
-            )
+                reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
+            ),
+            thumb_url="https://telegra.ph/file/6a2c878b37491fdcefcfa.jpg"
         )
-    elif search_ts.startswith("!0"):
+        answers.append(
+            InlineQueryResultArticle(
+                title="sᴇᴀʀᴄʜ ᴛᴏʀʀᴇɴᴛ ɪɴʟɪɴᴇ",
+                input_message_content=InputTextMessageContent(
+                    message_text="Search Torrent inline\nUse buttons below ",
+                    parse_mode="Markdown"
+                ),
+                reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
+            ),
+            thumb_url="https://telegra.ph/file/6a2c878b37491fdcefcfa.jpg"
+        )
+    elif search_ts.startswith("!pb"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
                 InlineQueryResultArticle(
-                    title="| Search for torrent on 1337x",
-                    description="Search torrent in 1337x",
+                    title="!pb [text]",
+                    description="Search For Torrent in ThePirateBay ...",
                     input_message_content=InputTextMessageContent(
-                        message_text="| [text]\n Search 1337x on **TELEGRAM** inline",
-                        parse_mode="md"
+                        message_text="`!pb [text]`\n\nSearch ThePirateBay Torrents from Inline!",
+                        parse_mode="Markdown"
                     ),
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!0 ")
-                            ]
-                        ]
-                    )
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!pb ")]])
                 )
             )
+        else:
+            torrentList = await SearchPirateBay(query)
+            if not torrentList:
+                answers.append(
+                    InlineQueryResultArticle(
+                        title="No Torrents Found in ThePirateBay!",
+                        description=f"Can't find torrents for {query} in ThePirateBay !!",
+                        input_message_content=InputTextMessageContent(
+                            message_text=f"No Torrents Found For `{query}` in ThePirateBay !!",
+                            parse_mode="Markdown"
+                        ),
+                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!pb ")]])
+                    )
+                )
+            else:
+                for i in range(len(torrentList)):
+                    answers.append(
+                        InlineQueryResultArticle(
+                            title=f"{torrentList[i]['Name']}",
+                            description=f"Seeders: {torrentList[i]['Seeders']}, Leechers: {torrentList[i]['Leechers']}\nSize: {torrentList[i]['Size']}",
+                            input_message_content=InputTextMessageContent(
+                                message_text=f"**Category:** `{torrentList[i]['Category']}`\n"
+                                             f"**Name:** `{torrentList[i]['Seeders']}`\n"
+                                             f"**Size:** `{torrentList[i]['Size']}`\n"
+                                             f"**Seeders:** `{torrentList[i]['Seeders']}`\n"
+                                             f"**Leechers:** `{torrentList[i]['Leechers']}`\n"
+                                             f"**Uploader:** `{torrentList[i]['Uploader']}`\n"
+                                             f"**Uploaded on {torrentList[i]['Date']}**\n\n"
+                                             f"**Magnet:**\n`{torrentList[i]['Magnet']}`",
+                                parse_mode="Markdown"
+                            ),
+                            reply_markup=InlineKeyboardMarkup(
+                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!pb ")]])
+                        )
+                    )
+    elif search_ts.startswith("!yts"):
+        query = search_ts.split(" ", 1)[-1]
+        if (query == "") or (query == " "):
+            answers.append(
+                InlineQueryResultArticle(
+                    title="!yts [text]",
+                    description="Search For Torrent in YTS ...",
+                    input_message_content=InputTextMessageContent(
+                        message_text="`!yts [text]`\n\nSearch YTS Torrents from Inline!",
+                        parse_mode="Markdown"
+                    ),
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!yts ")]])
+                )
+            )
+        else:
+            torrentList = await SearchYTS(query)
+            if not torrentList:
+                answers.append(
+                    InlineQueryResultArticle(
+                        title="No Torrents Found!",
+                        description=f"Can't find YTS torrents for {query} !!",
+                        input_message_content=InputTextMessageContent(
+                            message_text=f"No YTS Torrents Found For `{query}`",
+                            parse_mode="Markdown"
+                        ),
+                        reply_markup=InlineKeyboardMarkup(
+                            [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!yts ")]])
+                    )
+                )
+            else:
+                for i in range(len(torrentList)):
+                    dl_links = "- " + "\n\n- ".join(torrentList[i]['Downloads'])
+                    answers.append(
+                        InlineQueryResultArticle(
+                            title=f"{torrentList[i]['Name']}",
+                            description=f"Language: {torrentList[i]['Language']}\nLikes: {torrentList[i]['Likes']}, Rating: {torrentList[i]['Rating']}",
+                            input_message_content=InputTextMessageContent(
+                                message_text=f"**Genre:** `{torrentList[i]['Genre']}`\n"
+                                             f"**Name:** `{torrentList[i]['Name']}`\n"
+                                             f"**Language:** `{torrentList[i]['Language']}`\n"
+                                             f"**Likes:** `{torrentList[i]['Likes']}`\n"
+                                             f"**Rating:** `{torrentList[i]['Rating']}`\n"
+                                             f"**Duration:** `{torrentList[i]['Runtime']}`\n"
+                                             f"**Released on {torrentList[i]['ReleaseDate']}**\n\n"
+                                             f"**Torrent Download Links:**\n{dl_links}",
+                                parse_mode="Markdown",
+                                disable_web_page_preview=True
+                            ),
+                            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!yts ")]]),
+                            thumb_url=torrentList[i]["Poster"]
+                        )
+                    )
+    elif search_ts.startswith("!a"):
+        query = search_ts.split(" ", 1)[-1]
+        if (query == "") or (query == " "):
+            answers.append(
+                InlineQueryResultArticle(
+                    title="!a [text]",
+                    description="Search For Torrents for Anime ...",
+                    input_message_content=InputTextMessageContent(
+                        message_text="`!a [text]`\n\nSearch Anime Torrents from Inline!",
+                        parse_mode="Markdown"
+                    ),
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]])
+                )
+            )
+        else:
+            torrentList = await SearchAnime(query)
+            if not torrentList:
+                answers.append(
+                    InlineQueryResultArticle(
+                        title="No Anime Torrents Found!",
+                        description=f"Can't find Anime torrents for {query} !!",
+                        input_message_content=InputTextMessageContent(
+                            message_text=f"No Anime Torrents Found For `{query}`",
+                            parse_mode="Markdown"
+                        ),
+                        reply_markup=InlineKeyboardMarkup(
+                            [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!a ")]])
+                    )
+                )
+            else:
+                for i in range(len(torrentList)):
+                    answers.append(
+                        InlineQueryResultArticle(
+                            title=f"{torrentList[i]['Name']}",
+                            description=f"Seeders: {torrentList[i]['Seeder']}, Leechers: {torrentList[i]['Leecher']}\nSize: {torrentList[i]['Size']}",
+                            input_message_content=InputTextMessageContent(
+                                message_text=f"**Category:** `{torrentList[i]['Category']}`\n"
+                                             f"**Name:** `{torrentList[i]['Name']}`\n"
+                                             f"**Seeders:** `{torrentList[i]['Seeder']}`\n"
+                                             f"**Leechers:** `{torrentList[i]['Leecher']}`\n"
+                                             f"**Size:** `{torrentList[i]['Size']}`\n"
+                                             f"**Upload Date:** `{torrentList[i]['Date']}`\n\n"
+                                             f"**Magnet:** \n`{torrentList[i]['Magnet']}`",
+                                parse_mode="Markdown"
+                            ),
+                            reply_markup=InlineKeyboardMarkup(
+                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]]
+                            )
+                        )
+                    )
     else:
-        torrentList = await Searchx1337(search_ts)
+        torrentList = await Search1337x(search_ts)
         if not torrentList:
             answers.append(
                 InlineQueryResultArticle(
-                    title="Nothing found for your **SEARCH** on 1337x",
-                    description=f"Can't find anything regarding on your {search_ts} in x1337",
+                    title="No Torrents Found!",
+                    description=f"Can't find torrents for {search_ts} !!",
                     input_message_content=InputTextMessageContent(
-                        message_text=f"Nothing found on {search_ts} in 1337x",
-                        parse_mode="md"
+                        message_text=f"No Torrents Found For `{search_ts}`",
+                        parse_mode="Markdown"
                     ),
                     reply_markup=InlineKeyboardMarkup(
-                        [
-                            [ 
-                                InlineKeyboardButton("Try again", switch_inline_query_current_chat="!0 ")
-                            ]
-                        ]
-                    )
+                        [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="")]])
                 )
             )
         else:
@@ -96,20 +232,21 @@ async def botToreent(_, inline: InlineQuery):
                         title=f"{torrentList[i]['Name']}",
                         description=f"Seeders: {torrentList[i]['Seeders']}, Leechers: {torrentList[i]['Leechers']}\nSize: {torrentList[i]['Size']}, Downloads: {torrentList[i]['Downloads']}",
                         input_message_content=InputTextMessageContent(
-                            message_text=f"**Category:** {torrentList[i]['Category']}\n"
-                                         f"**Name:** {torrentList[i]['Name']}\n"
-                                         f"**Languages:** {torrentList[i]['Languages']}\n"
-                                         f"**Seeders:** {torrentList[i]['Seeders']}\n"
-                                         f"**Leechers:** {torrentList[i]['Leechers']}\n"
-                                         f"**Magnet:** {torrentList[i]['Magnet']}\n Torrent Generated from @GokuFilterBot",
-                            parse_mode="md"
+                            message_text=f"**Category:** `{torrentList[i]['Category']}`\n"
+                                         f"**Name:** `{torrentList[i]['Name']}`\n"
+                                         f"**Language:** `{torrentList[i]['Language']}`\n"
+                                         f"**Seeders:** `{torrentList[i]['Seeders']}`\n"
+                                         f"**Leechers:** `{torrentList[i]['Leechers']}`\n"
+                                         f"**Size:** `{torrentList[i]['Size']}`\n"
+                                         f"**Downloads:** `{torrentList[i]['Downloads']}`\n"
+                                         f"__Uploaded by {torrentList[i]['UploadedBy']}__\n"
+                                         f"__Uploaded {torrentList[i]['DateUploaded']}__\n"
+                                         f"__Last Checked {torrentList[i]['LastChecked']}__\n\n"
+                                         f"**Magnet:**\n`{torrentList[i]['Magnet']}`",
+                            parse_mode="Markdown"
                         ),
                         reply_markup=InlineKeyboardMarkup(
-                            [
-                                [
-                                    InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!0 ")
-                                ]
-                            ]
+                            [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="")]]
                         ),
                         thumb_url=torrentList[i]['Poster']
                     )
@@ -133,4 +270,3 @@ async def botToreent(_, inline: InlineQuery):
         except QueryIdInvalid:
             print(f"Failed to Answer Error - {inline.from_user.first_name} - Sleeping for 5s")
             await asyncio.sleep(5)
-
