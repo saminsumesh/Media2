@@ -32,8 +32,7 @@ async def inline_handlers(_, inline: InlineQuery):
                     parse_mode="Markdown"
                 ),
                 reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
-            ),
-            thumb_url="https://telegra.ph/file/8d5f51b7c3dba4a0cb36f.jpg"
+            )
         )
         answers.append(
             InlineQueryResultArticle(
@@ -43,8 +42,7 @@ async def inline_handlers(_, inline: InlineQuery):
                     parse_mode="Markdown"
                 ),
                 reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
-            ),
-            thumb_url="https://telegra.ph/file/6a2c878b37491fdcefcfa.jpg"
+            )
         )
         answers.append(
             InlineQueryResultArticle(
@@ -54,8 +52,7 @@ async def inline_handlers(_, inline: InlineQuery):
                     parse_mode="Markdown"
                 ),
                 reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
-            ),
-            thumb_url="https://telegra.ph/file/6a2c878b37491fdcefcfa.jpg"
+            )
         )
     elif search_ts.startswith("!pb"):
         query = search_ts.split(" ", 1)[-1]
